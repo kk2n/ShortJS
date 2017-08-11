@@ -1,0 +1,69 @@
+@charset "UTF-8";
+//-----------------------------------------------
+// For lk-project project At 2015-12-20 By likuan
+//-----------------------------------------------
+@import 'd:/ws/ss/_sscss-set';
+@import 'd:/ws/ss/_sscss-mixin';
+//mixin，&，%，extend
+@import 'd:/ws/ss/_sscss-media'; //媒体查询
+//媒体查询--------------------------------------------------
+//ios4：       320 * 480   devicePixelRatio:2
+//ios5：       320 * 568   devicePixelRatio:2
+//ios6：       375 * 627   devicePixelRatio:2    device-height:667px
+//ios6 plus：  414 * 736   devicePixelRatio:2
+//ipad：       768 * 1024  devicePixelRatio:2
+//安卓：        360 * 567   devicePixelRatio:1
+//黑莓playbook：600 * 1024  devicePixelRatio:1
+//orientation：landscape,portrait
+//-----------------------------------------------
+///*
+//@include ios4(p)            {.waikuang{@include ss(()(miw 320)(mih 480));}}
+//@include ios5(p)            {.waikuang{@include ss(()(miw 320)(mih 568));}}
+//@include blackberry-z30(p)  {.waikuang{@include ss(()(miw 360)(mih 640));}}
+//@include isaz(p)            {.waikuang  {@include ss(()(miw 360)(mih 567));}}
+//@include ios6(p)            {.waikuang  {@include ss(()(miw 375)(mih 627));}}
+//@include ios6p(p)           {.waikuang {@include ss(()(miw 414)(mih 736));}}
+//@include ipad(p)            {.waikuang  {@include ss(()(miw 768)(mih 1024));}}
+//@include ipad(l)            {.waikuang  {@include ss(()(miw 768)(mih 1024));}}
+//@include blackberry-playbook(p){.waikuang{@include ss(()(miw 600)(mih 1024));}}
+//@include google-nexus-10(p) {.waikuang{@include ss(()(miw 800)(mih 1280));}}
+//@include google-nexus-4(p)  {.waikuang{@include ss(()(miw 384)(mih 567));}}
+//@include google-nexus-6(p)  {.waikuang{@include ss(()(miw 412)(mih 659));}}
+//@include google-nexus-7(p)  {.waikuang{@include ss(()(miw 600)(mih 960));}}
+//@include lg-l70(p)          {.waikuang{@include ss(()(miw 384)(mih 640));}}
+//@include amazon-fire-hdx(p) {.waikuang{@include ss(()(miw 1600)(mih 2560));}}
+//*/
+//媒体查询
+
+@include scw(1200px,1920px){//宽屏
+
+}
+@include scw(800px,1200px){//窄屏
+
+}
+@include scw(768px,800px){
+
+}
+
+@include ios4(p) {
+
+}
+@include ios5(p) {
+
+}
+
+@include blackberry-z30(p) {
+
+}
+
+@include isaz(p) {
+
+}
+
+@include ios6(p) {
+
+}
+
+@include ios6p(p) {
+
+}

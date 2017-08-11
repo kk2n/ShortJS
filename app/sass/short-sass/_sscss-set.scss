@@ -1,0 +1,228 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// Created by likuan on 12/18 0018.
+//-----------------------------------------------------
+//-----------------------------------------------------
+// font相关
+//-----------------------------------------------------
+$fz:        14px !default;
+$lh:        1.5 !default;
+$ff:        "Microsoft Yahei","Helvetica Neue", Helvetica, Tahoma, sans-serif !default;
+$z-st:      "SimSun"; //宋体
+$z-yh:      "Microsoft Yahei"; //微软雅黑
+$z-ht:      "SimHei"; //黑体
+//------------------------------------------------------
+// 常用颜色
+//-----------------------------------------------
+$e1:    #e1e1e1 ;
+$f5:    #f5f5f5 ;
+$ccc:   #ccc ;
+$red:   #ff0000 ;
+$blue:  #00f ;
+$green: #008000 ;
+$black: #000 ;//黑色
+$fff:   #fff ;//白色
+
+
+$err-c: #F94E4E !default;         //错误色
+$jg-c:  #FDBD51 !default;         //警告色
+$succ-c:#08C01E !default;         //成功色
+$bn-c:  #3385FF !default;         //按钮色
+
+$m-c:   #313649 !default;         //主色
+$f-c:   #98A0AF !default;         //副色
+$bgc:   #fff!default;             //默认背景色
+$bgi:   'space.png'!default;  //默认背景图
+$bdc:   #e1e1e1!default;          //边框色
+$a-c:   #08c !default;            //link(a)的颜色
+//-----------------------------------------------------
+//  缩写
+//-----------------------------------------------------
+$t:     true;
+$f:     false;
+$c:     center;
+$nr:    no-repeat;
+$rx:    repeat-x;
+$ry:    repeat-y;
+$a:     auto;
+$h:     hidden;
+//--------------------------------------------------
+// 常用设置
+//--------------------------------------------------
+$by-bg:    $fff !default;
+$z-c:      $m-c !default;
+$brs:      6px !default;
+$boxs:     1px 1px 8px 0px #ccc !default;
+$gap:      10px !default;
+$ti:       8px !default;
+//最大、最小值
+$mw:    980px!default;
+$maw:   1920px!default;
+$mh:    0px!default;
+$mah:   100%!default;
+//默认路径
+$path:'img/'!default;
+
+//--------------------------------------------------
+//开关，用于条件判断
+//--------------------------------------------------
+$all-small:             true !default;  //简单的全局定义
+$lte7:                  true !default;  //是否兼容ie6-7
+$filter:                false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景
+$print-on:              false !default; //是否开启打印样式
+$vidia-on:              false !default; //页面是否出现视频、音频、绘画、进度条
+$other-on:              false !default; //其他开关
+$inp-p:                 false $ccc !default; //输入框中默认文字提示的颜色
+
+
+
+
+
+
+// susy网格组件设置
+
+$susy: (
+        flow: ltr,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        container: auto,
+        container-position: center,
+        columns: 4,
+        gutters: .25,
+        column-width: false,
+        global-box-sizing: content-box,
+        last-flow: to,
+        debug: (
+                image: hide,
+                color: rgba(#66f, .25),
+                output: background,
+                toggle: top right,
+        ),
+        use-custom: (
+                background-image: true,
+                background-options: false,
+                box-sizing: true,
+                clearfix: false,
+                rem: true,
+        )
+);
+
+
+
+/// BEM
+/// @access public
+/// @author Marcmintel
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+
+$elementSeparator: '_';
+
+$modifierSeparator: '-';
+
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+/// 判断`$selector`中是否包含BEM中Modify
+/// @access private
+/// @param  {String}  $selector
+/// @return {Boolean} `true` or `false`
+
+@function containsModifier($selector) {
+    $selector: selectorToString($selector);
+    @if str-index($selector, $modifierSeparator) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+/// 将`$selector`转换成String
+/// @access private
+/// @param  {String}  $selector
+/// @return {String}  $selector
+@function selectorToString($selector) {
+    $selector: inspect($selector); //cast to string
+    $selector: str-slice($selector, 2, -2); //remove brackets
+    @return $selector;
+}
+
+/// @param  {String}  $selector
+/// @access private
+/// @return {String}
+@function getBlock($selector) {
+    $selector: selectorToString($selector);
+    $modifierStart: str-index($selector, $modifierSeparator) - 1;
+    @return str-slice($selector, 0, $modifierStart);
+}
+
+/// @param {string} $block - BEM中的Block
+/// @content
+/// @example
+///  //SCSS
+///  @include b(block) {
+///     background: red;
+///     @include e(header){
+///         font-size: 14px;
+///
+///         @include m(css) {
+///             font-size: 18px;
+///         }
+///     };
+///  }
+///  //CSS
+///  .block {
+///      background: red;
+///  }
+///  .block__header {
+///     font-size: 14px;
+///  }
+///  .block__header--css {
+///     font-size: 18px;
+///  }
+
+@mixin b($block) {
+    .#{$block} {
+        @content;
+    }
+}
+@mixin e($element) {
+    $selector: &;
+    @if containsModifier($selector) {
+        $block: getBlock($selector);
+        @at-root {
+            #{$selector} {
+                & #{$block+$elementSeparator+$element} {
+                    @content;
+                }
+            }
+        }
+    } @else {
+        @at-root {
+            #{$selector+$elementSeparator+$element} {
+                @content;
+            }
+        }
+    }
+}
+@mixin m($modifier) {
+    @at-root {
+        & #{&}#{$modifierSeparator+$modifier} {
+            @content;
+        }
+    }
+}
+
+

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+//-----------------------------------------------
+// For lk-project project At 2015-12-20 By likuan
+//-----------------------------------------------
+@import 'd:/ws/short/_sscss-set';
+@import 'd:/ws/short/_sscss-mixin';//mixin，&，%，extend
+//CSS动画效果-------------------------------------------------
+@-webkit-keyframes mymove {
+    from {
+      background-position-x:-360px;
+    }
+    to {
+      background-position-x:0px;
+    }
+}

@@ -1,0 +1,137 @@
+//伸缩盒（旧）
+@mixin box{display: -webkit-box;display: box;}
+@mixin pack-c{@include box;-webkit-box-pack:center;box-pack:center;}
+@mixin align-c{@include box;-webkit-box-align:center;box-align:center;}
+@mixin box-c{@include box;@include pack-c;@include align-c;}
+
+//文本溢出省略号显示
+@mixin ellipsis($line:1){
+  @if $line==1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+// 过渡
+@mixin transition($transition...) {
+    -webkit-transition:$transition;
+    -moz-transition:$transition;
+    -o-transition:$transition;
+    transition:$transition;
+}
+
+// 旋转位置
+@mixin transform-origin($origin...) {
+    -webkit-transform-origin:$origin;
+    -moz-transform-origin:$origin;
+    -o-transform-origin:$origin;
+    transform-origin:$origin;
+}
+
+//转换
+@mixin transform($transform...) {
+    -webkit-transform:$transform;
+    -moz-transform:$transform;
+    -o-transform:$transform;
+    transform:$transform;
+}
+
+// 动画名称
+@mixin animation($aniName...) {
+    -webkit-animation:$aniName;
+    -moz-animation:$aniName;
+    -o-animation:$aniName;
+    animation:$aniName;
+}
+// 延迟执行时间
+@mixin animation-delay($time) {
+    -webkit-animation-delay:$time;
+    -moz-animation-delay:$time;
+    -o-animation-delay:$time;
+    animation-delay:$time;
+}
+// 延迟执行时间
+@mixin transition-delay($time) {
+    -webkit-transition-delay:$time;
+    -moz-transition-delay:$time;
+    -o-transition-delay:$time;
+    transition-delay:$time;
+}
+// 关键帧
+@mixin keyframes($animationName) {  
+    @-webkit-keyframes #{$animationName} {  
+        @content;  
+    }  
+    @-moz-keyframes #{$animationName} {  
+        @content;  
+    }  
+    @-o-keyframes #{$animationName} {  
+        @content;  
+    }  
+    @keyframes #{$animationName} {  
+        @content;  
+    }  
+}
+
+
+/*===reset-star===*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,tr,td,section,a,input,span{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box; } 
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+html,body{-webkit-user-select: none;user-select: none;-webkit-overflow-scrolling: touch;overflow-scrolling: touch;}
+body{font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif,"microsoft yahei";-webkit-font-smoothing: antialiased;}
+table {border-collapse:collapse;border-spacing:0;} 
+fieldset,img {border:0} 
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal} 
+ol,ul {list-style:none} 
+caption,th,td{text-align:center} 
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal} 
+q:before,q:after {content:''} 
+input[type=button],button{-webkit-appearance:none;-webkit-user-select:none;}
+a,img,input,select,li{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+a,img{text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-touch-callout:none;}
+a,input,img,select{outline: none;}
+input::-webkit-clear-button,input::-webkit-inner-spin-button,input::-webkit-outer-spin-button {-webkit-appearance: none; }
+input::-webkit-search-cancel-button {display: none;}
+input:focus::-webkit-input-placeholder{opacity: 0;}
+::-webkit-scrollbar{display:none;width: 0;}
+img{-webkit-touch-callou:none;}
+*{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+
+$designWidth: 640;
+@function rem($px: 10) {
+    @return $px/$designWidth*10rem;
+}
+html{font-size:$designWidth/2/10*1px;width:100%;}
+body{font-size:rem(28);margin:0 auto;width:100%;min-width:320px;}
+.show{display:block !important;}
+.hide,.none{display:none !important;}
+
+/*media*/
+@for $i from 32 through $designWidth/10 {
+    $index: 10;
+    $j: $i*$index;
+    @if $i==32{
+        @media screen and (max-width:#{$j}px){
+           html{font-size:($j/10) + px !important;}
+        } 
+    }
+    @media screen and (min-width: #{$j}px) {
+        html {
+            @if $j>=$designWidth {
+                font-size: ($j/10) + px !important;
+            }@else {
+                font-size: ($j/10) + px
+            }
+
+        }
+    }
+}
+html {font-size: $designWidth/10/$designWidth*100vw;}

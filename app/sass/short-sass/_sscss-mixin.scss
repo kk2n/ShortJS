@@ -1,0 +1,4730 @@
+@charset "UTF-8";
+//---------------------------------------------------------------
+// 项目名：   ShortScss (简写：sscss)
+// 版  本：   V1.0.0
+// 作  者：   Likuan
+// 关键词：   简单的，简短的，缩写的，胡乱的，疯狂的Scss的简写混合（mixin）方法。
+@mixin ss($val){
+  @each $attr in unquote($val){
+    @if (length($attr)>0){
+      $note: "/*comment";$shu:null;$zhi:null;$shu1:null;
+      @if (nth($attr,1)=='n'){$shu1:$note;$zhi:'*/'}
+      @if (nth($attr,1)=='con'){$shu1:content;$zhi:''}
+      @if (nth($attr,1)=='db') or (nth($attr,1)=='show'){$shu1:display;$zhi:block;}
+      @if (nth($attr,1)=='dn') or (nth($attr,1)=='hide'){$shu1:display;$zhi:none;}
+      @if (nth($attr,1)=='poa') or (nth($attr,1)=='po'){$shu1:position;$zhi:absolute;}
+      @if (nth($attr,1)=='por'){$shu1:position;$zhi:relative;}
+      @if (nth($attr,1)=='pof'){$shu1:position;$zhi:fixed;}
+      @if (nth($attr,1)=='fl'){$shu1:float;$zhi:left;}
+      @if (nth($attr,1)=='fr'){$shu1:float;$zhi:right;}
+      @if (nth($attr,1)=='cb'){$shu1:clear;$zhi:both;}
+      @if (nth($attr,1)=='l'){$shu1:left;$zhi:0;}
+      @if (nth($attr,1)=='r'){$shu1:right;$zhi:0;}
+      @if (nth($attr,1)=='t'){$shu1:top;$zhi:0;}
+      @if (nth($attr,1)=='b'){$shu1:bottom;$zhi:0;}
+      @if (nth($attr,1)=='cl'){$shu1:clip;$zhi:auto;}
+      @if (nth($attr,1)=='z'){$shu1:z-index;$zhi:1;}
+      @if (nth($attr,1)=='jz'){$shu1:margin-left;$zhi:auto+';'+'margin-right:auto'}
+      @if (nth($attr,1)=='jzc'){$shu1:margin-left;$zhi:auto+';'+'margin-right:auto;text-align:center'}
+      @if (nth($attr,1)=='spc'){$shu1:margin-left;$zhi:auto+';'+'margin-right:auto;'}
+      @if (nth($attr,1)=='czc'){$shu1:display;$zhi:flex+';'+'justify-content:center;align-items:Center;'}
+      @if (nth($attr,1)=='w'){$shu1:width;$zhi:auto;}
+      @if (nth($attr,1)=='h'){$shu1:height;$zhi:auto;}
+      @if (nth($attr,1)=='zxw') or (nth($attr,1)=='mw') or (nth($attr,1)=='miw'){$shu1:min-width;$zhi:$mw;}
+      @if (nth($attr,1)=='zdw') or (nth($attr,1)=='maw'){$shu1:max-width;$zhi:$maw;}
+      @if (nth($attr,1)=='zxh') or (nth($attr,1)=='mh') or (nth($attr,1)=='mih'){$shu1:min-height;$zhi:$mh;}
+      @if (nth($attr,1)=='zdh') or (nth($attr,1)=='mah'){$shu1:max-height;$zhi:$mah;}
+      @if (nth($attr,1)=='o'){$shu1:overflow;$zhi:hidden;}
+      @if (nth($attr,1)=='ox'){$shu1:overflow-x;$zhi:auto;}
+      @if (nth($attr,1)=='oy'){$shu1:overflow-y;$zhi:auto;}
+      @if (nth($attr,1)=='p'){$shu1:padding;$zhi:0;}
+      @if (nth($attr,1)=='pl'){$shu1:padding-left;$zhi:0;}
+      @if (nth($attr,1)=='pr'){$shu1:padding-right;$zhi:0;}
+      @if (nth($attr,1)=='pt'){$shu1:padding-top;$zhi:0;}
+      @if (nth($attr,1)=='pb'){$shu1:padding-bottom;$zhi:0;}
+      @if (nth($attr,1)=='m'){$shu1:margin;$zhi:0;}
+      @if (nth($attr,1)=='ml'){$shu1:margin-left;$zhi:0;}
+      @if (nth($attr,1)=='mr'){$shu1:margin-right;$zhi:0;}
+      @if (nth($attr,1)=='mt'){$shu1:margin-top;$zhi:0;}
+      @if (nth($attr,1)=='mb'){$shu1:margin-bottom;$zhi:0;}
+      @if (nth($attr,1)=='mp'){$shu1:margin;$zhi:'0;padding: 0';}
+      @if (nth($attr,1)=='pm'){$shu1:padding;$zhi:'0;margin: 0';}
+      @if (nth($attr,1)=='pv'){$shu1:padding-top;$zhi:'0;padding-botton: 0';}
+      @if (nth($attr,1)=='ph'){$shu1:padding-left;$zhi:'0;padding-left: 0';}
+      @if (nth($attr,1)=='wh'){$shu1:width;$zhi:'auto;height: auto';}
+      @if (nth($attr,1)=='mp-'){$shu1:margin;$zhi:'0;padding: 0';}
+      @if (nth($attr,1)=='pm-'){$shu1:padding;$zhi:'0;margin: 0';}
+      @if (nth($attr,1)=='wh-'){$shu1:width;$zhi:'auto;height:auto';}
+      @if (nth($attr,1)=='wo'){$shu1:width;$zhi:'auto;overflow:hidden';}
+      @if (nth($attr,1)=='ho'){$shu1:height;$zhi:'auto;overflow:hidden';}
+      @if (nth($attr,1)=='who'){$shu1:width;$zhi:'auto;height:auto;overflow:hidden';}
+      @if (nth($attr,1)=='bdw'){$shu1:border-width;$zhi:'1px';}
+      @if (nth($attr,1)=='bds'){$shu1:border-style;$zhi:'solid';}
+      @if (nth($attr,1)=='bdx'){$shu1:border-style;$zhi:'dotted';}
+      @if (nth($attr,1)=='bdc'){$shu1:border-color;$zhi:$bdc;}
+      @if (nth($attr,1)=='bdt'){$shu1:border-top;$zhi:1px solid $bdc;}
+      @if (nth($attr,1)=='bdb'){$shu1:border-bottom;$zhi:1px solid $bdc;}
+      @if (nth($attr,1)=='bdl'){$shu1:border-left;$zhi:1px solid $bdc;}
+      @if (nth($attr,1)=='bdr'){$shu1:border-right;$zhi:1px solid $bdc;}
+      @if (nth($attr,1)=='bd'){$shu1:border;$zhi:1px solid $bdc;}
+      @if (nth($attr,1)=='bdrs')
+      or (nth($attr,1)=='brs'){$shu1:border-radius;$zhi:$brs+';-moz-border-radius:'+$brs+';-webkit-border-radius:'+$brs;}
+      @if (nth($attr,1)=='bgc'){$shu1:background-color;$zhi:$bgc;}
+      @if (nth($attr,1)=='bgs'){$shu1:background-size;$zhi:100%;}
+      @if (nth($attr,1)=='bgp'){$shu1:background-position;$zhi:0 0;}
+      @if (nth($attr,1)=='bgpx'){$shu1:background-position-x;$zhi:0;}
+      @if (nth($attr,1)=='bgpy'){$shu1:background-position-y;$zhi:0;}
+      @if (nth($attr,1)=='bgr'){$shu1:background-repeat;$zhi:$nr;}
+      @if (nth($attr,1)=='bgi'){$shu1:background-image;$zhi:'url("'+$path+''+$bgi+'")';}
+      @if (nth($attr,1)=='bg'){$shu1:background;$zhi:inherit;}
+      @if (nth($attr,1)=='f'){$shu1:font;$zhi:100 $fz $ff;}
+      @if (nth($attr,1)=='ff'){$shu1:font-family;$zhi:$ff;}
+      @if (nth($attr,1)=='fz'){$shu1:font-size;$zhi:$fz;}
+      @if (nth($attr,1)=='fs'){$shu1:font-style;$zhi:normal;}
+      @if (nth($attr,1)=='whs'){$shu1:white-space;$zhi:nowrap;}
+      @if (nth($attr,1)=='c'){$shu1:color;$zhi:$z-c;}
+      @if (nth($attr,1)=='ti'){$shu1:text-indent;$zhi:$ti;}
+      @if (nth($attr,1)=='ta') or (nth($attr,1)=='tac'){$shu1:text-align;$zhi:center;}
+      @if (nth($attr,1)=='tal') or (nth($attr,1)=='tl'){$shu1:text-align;$zhi:left;}
+      @if (nth($attr,1)=='tar') or (nth($attr,1)=='tr'){$shu1:text-align;$zhi:right;}
+      @if (nth($attr,1)=='fw'){$shu1:font-weight;$zhi:100;}
+      @if (nth($attr,1)=='lh'){$shu1:line-height;$zhi:$lh;}
+      @if (nth($attr,1)=='op'){$shu1:opacity;$zhi:0;}
+      @if (nth($attr,1)=='td'){$shu1:text-decoration;$zhi:none;}
+      @if (nth($attr,1)=='lhh'){$shu1:line-height;$zhi:$lh+';'+'height:'+$lh*$fz;}
+      @if (nth($attr,1)=='zjj'){$shu1:text-align;$zhi:justify+';'+'letter-spacing:normal';}
+      @if (nth($attr,1)=='hx'){$shu1:height;$zhi:100%+';width:100%;overflow:hidden;font:0/0 normal;clear:both;margin:0 auto;background:'+$bdc}
+      @if (nth($attr,1)=='noios'){$shu1:'-webkit-appearance';$zhi:none;}
+      @if (nth($attr,1)=='di'){$shu1:'display';$zhi:inline-block;}
+      @if (nth($attr,1)=='cur'){$shu1:'cursor';$zhi:pointer;}
+      @if (nth($attr,1)=='cup'){$shu1:'cursor';$zhi:pointer;}
+      @if (nth($attr,1)=='a'){$shu1:'cursor:pointer;text-decoration:none;color';$zhi:$a-c}
+      @if (nth($attr,1)=='d1'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:1}
+      @if (nth($attr,1)=='d2'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:2}
+      @if (nth($attr,1)=='d3'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:3}
+      @if (nth($attr,1)=='d4'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:4}
+      @if (nth($attr,1)=='d5'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:5}
+      @if (nth($attr,1)=='d6'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:6}
+      @if (nth($attr,1)=='d7'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:7}
+      @if (nth($attr,1)=='d8'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:8}
+      @if (nth($attr,1)=='d9'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:9}
+      @if (nth($attr,1)=='d10'){$shu1:'text-overflow: ellipsis;display: -webkit-box;overflow:hidden;-webkit-box-orient: vertical; -webkit-line-clamp';$zhi:10}
+      
+      //以下为常用简写
+      @if (nth($attr,1)=='w100'){$shu1:width;$zhi:'100%';}
+      @if (nth($attr,1)=='h100'){$shu1:height;$zhi:'100%';}
+      @if (nth($attr,1)=='wa'){$shu1:width;$zhi:'auto';}
+      @if (nth($attr,1)=='ha'){$shu1:height;$zhi:'auto';}
+      @if (nth($attr,1)=='bd1'){$shu1:border;$zhi:'1px solid #ddd';}
+
+      @if (nth($attr,1)=='p10'){$shu1:padding;$zhi:'10px';}
+      @if (nth($attr,1)=='pt10'){$shu1:padding-top;$zhi:'10px';}
+      @if (nth($attr,1)=='pb10'){$shu1:padding-bottom;$zhi:'10px';}
+      @if (nth($attr,1)=='pl10'){$shu1:padding-left;$zhi:'10px';}
+      @if (nth($attr,1)=='pr10'){$shu1:padding-right;$zhi:'10px';}
+
+      @if (nth($attr,1)=='p20'){$shu1:padding;$zhi:'20px';}
+      @if (nth($attr,1)=='pt20'){$shu1:padding-top;$zhi:'20px';}
+      @if (nth($attr,1)=='pb20'){$shu1:padding-bottom;$zhi:'20px';}
+      @if (nth($attr,1)=='pl20'){$shu1:padding-left;$zhi:'20px';}
+      @if (nth($attr,1)=='pr20'){$shu1:padding-right;$zhi:'20px';}
+
+      @if (nth($attr,1)=='m10'){$shu1:margin;$zhi:'10px';}
+      @if (nth($attr,1)=='mt10'){$shu1:margin-top;$zhi:'10px';}
+      @if (nth($attr,1)=='mb10'){$shu1:margin-bottom;$zhi:'10px';}
+      @if (nth($attr,1)=='ml10'){$shu1:margin-left;$zhi:'10px';}
+      @if (nth($attr,1)=='mr10'){$shu1:margin-right;$zhi:'10px';}
+
+      @if (nth($attr,1)=='m20'){$shu1:margin;$zhi:'20px';}
+      @if (nth($attr,1)=='mt20'){$shu1:margin-top;$zhi:'20px';}
+      @if (nth($attr,1)=='mb20'){$shu1:margin-bottom;$zhi:'20px';}
+      @if (nth($attr,1)=='ml20'){$shu1:margin-left;$zhi:'20px';}
+      @if (nth($attr,1)=='mr20'){$shu1:margin-right;$zhi:'20px';}
+
+      @if (nth($attr,1)=='c08c'){$shu1:color;$zhi:'#0088cc';}
+      @if (nth($attr,1)=='c069'){$shu1:color;$zhi:'#006699';}
+      @if (nth($attr,1)=='c3'){$shu1:color;$zhi:'#333';}
+      @if (nth($attr,1)=='c9'){$shu1:color;$zhi:'#999';}
+      @if (nth($attr,1)=='c6'){$shu1:color;$zhi:'#666';}
+      @if (nth($attr,1)=='cf'){$shu1:color;$zhi:'#fff';}
+
+      @if (nth($attr,1)=='bgc08c'){$shu1:background-color;$zhi:'#0088cc';}
+      @if (nth($attr,1)=='bgc069'){$shu1:background-color;$zhi:'#006699';}
+      @if (nth($attr,1)=='bgc3'){$shu1:background-color;$zhi:'#333';}
+      @if (nth($attr,1)=='bgc9'){$shu1:background-color;$zhi:'#999';}
+      @if (nth($attr,1)=='bgc6'){$shu1:background-color;$zhi:'#666';}
+      @if (nth($attr,1)=='bgcf'){$shu1:background-color;$zhi:'#fff';}
+
+      @if (nth($attr,1)=='oa'){$shu1:overflow;$zhi:'auto';}
+      @if (nth($attr,1)=='lh1'){$shu1:line-height;$zhi:'1';}
+      @if (nth($attr,1)=='lh1.5'){$shu1:line-height;$zhi:'1.5';}
+      @if (nth($attr,1)=='lh2'){$shu1:line-height;$zhi:'2';}
+      @if (nth($attr,1)=='lh24'){$shu1:line-height;$zhi:'24px';}
+      @if (nth($attr,1)=='lh34'){$shu1:line-height;$zhi:'34px';}
+      @if (nth($attr,1)=='lh48'){$shu1:line-height;$zhi:'48px';}
+
+
+      @if (nth($attr,1)=='z1'){$shu1:z-index;$zhi:1;}
+      @if (nth($attr,1)=='z2'){$shu1:z-index;$zhi:2;}
+      @if (nth($attr,1)=='z3'){$shu1:z-index;$zhi:3;}
+      @if (nth($attr,1)=='z4'){$shu1:z-index;$zhi:4;}
+      @if (nth($attr,1)=='z5'){$shu1:z-index;$zhi:5;}
+      @if (nth($attr,1)=='z10'){$shu1:z-index;$zhi:10;}
+      @if (nth($attr,1)=='z100'){$shu1:z-index;$zhi:100;}
+      @if (nth($attr,1)=='fz12'){$shu1:font-size;$zhi:'12px';}
+      @if (nth($attr,1)=='fz15'){$shu1:font-size;$zhi:'15px';}
+      @if (nth($attr,1)=='fz16'){$shu1:font-size;$zhi:'16px';}
+      @if (nth($attr,1)=='fz17'){$shu1:font-size;$zhi:'17px';}
+      @if (nth($attr,1)=='fz18'){$shu1:font-size;$zhi:'18px';}
+      @if (nth($attr,1)=='fz19'){$shu1:font-size;$zhi:'19px';}
+      @if (nth($attr,1)=='fz20'){$shu1:font-size;$zhi:'20px';}
+      @if (nth($attr,1)=='fz21'){$shu1:font-size;$zhi:'21px';}
+      @if (nth($attr,1)=='fz22'){$shu1:font-size;$zhi:'22px';}
+      @if (nth($attr,1)=='fw700'){$shu1:font-weight;$zhi:'700';}
+      @if (nth($attr,1)=='ffyh'){$shu1:font-family;$zhi:"Microsoft Yahei",sans-serif;}
+
+      @if (nth($attr,1)=='bddo'){$shu1:border-style;$zhi:'dotted';}
+      @if (nth($attr,1)=='bdcd'){$shu1:border-color;$zhi:'#ddd';}
+      @if (nth($attr,1)=='bdc08c'){$shu1:border-color;$zhi:'#08c';}
+
+      @if (length($attr)==2) { //只有2个值时
+        $shu: nth($attr, 1);$v1:'';
+        @if (length(nth($attr,2))==5) {
+          //特殊项处理
+          @if (nth($attr,1)=='bg') {
+            $b: '';$c: '';$img: '';$x: '';$nr1: '';$c-t: '';$i-t: '';$x-t: '';$nr1-t: '';$i: 0;$s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y") {
+                  @if ($v=="n") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="nr") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="x") {
+                    $v: repeat-x;
+                  }
+                  @if ($v=="y") {
+                    $v: repeat-y;
+                  }
+                  $nr1: $v;
+                  $nr1-t: true;
+                }
+                @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b") {
+                  @if ($v=="c") {
+                    $v: center;
+                  }
+                  @if ($v=="l") {
+                    $v: left;
+                  }
+                  @if ($v=="r") {
+                    $v: right;
+                  }
+                  @if ($v=="t") {
+                    $v: top;
+                  }
+                  @if ($v=="b") {
+                    $v: bottom;
+                  }
+                  $x: $x+' '+$v;
+                  $x-t: true;
+                  $i: $i+1;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $c-t: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (unit($v)=='') and ($v!=0) {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v+px;
+                } @else {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v;
+                }
+              }
+              @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")) {
+                $img: 'url("'+$path+$v+'")';
+                $i-t: true;
+              }
+            }
+            //content: $c-t $i-t $x-t $nr1-t $i;
+            @if ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+' '+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $img+' '+$x+' '+$nr1;
+              }
+            }
+            @if ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($x-t=="") {
+              $b: 0 0;
+            }
+            @if ($nr1-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+$img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+$img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($x-t=="") {
+              $b: 0 0 no-repeat;
+            }
+            @if ($nr1-t=="") and ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($c-t=="") and ($x-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr1;
+            }
+            @if ($i-t=="") and ($x-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($i-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+            }
+            @if ($nr1-t=="") and ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              //无意义
+              $b: 'url("'+$path+$bgi+'") 0 0 '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              $b: 'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+            }
+            @if ($nr1-t!="") and ($x-t!="") and ($c-t!="") and ($i-t!="") {
+              $b: unquote($c+' '+$img+' '+$x+' '+$nr1)
+            }
+            $b: unquote($b);
+            $zhi: $b;
+          }
+        }
+        @if (length(nth($attr,2))==4) {
+          $list: nth($attr, 2);
+          @each $mv in $list {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            } @else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi: $v1;
+          //特殊项处理
+          @if (nth($attr,1)=='mp') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            padding: unquote($v1);
+          }
+          @if (nth($attr,1)=='pm') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            margin: unquote($v1);
+          }
+          @if (nth($attr,1)=='bdrs') or (nth($attr,1)=='brs') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            -moz-border-radius: unquote($v1);
+            -webkit-border-radius: unquote($v1);
+          }
+          @if (nth($attr,1)=='bg') {
+            $b: '';
+            $c: '';
+            $img: '';
+            $x: '';
+            $nr1: '';
+            $c-t: '';
+            $i-t: '';
+            $x-t: '';
+            $nr1-t: '';
+            $i: 0;
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y") {
+                  @if ($v=="n") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="nr") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="x") {
+                    $v: repeat-x;
+                  }
+                  @if ($v=="y") {
+                    $v: repeat-y;
+                  }
+                  $nr1: $v;
+                  $nr1-t: true;
+                }
+                @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b") {
+                  @if ($v=="c") {
+                    $v: center;
+                  }
+                  @if ($v=="l") {
+                    $v: left;
+                  }
+                  @if ($v=="r") {
+                    $v: right;
+                  }
+                  @if ($v=="t") {
+                    $v: top;
+                  }
+                  @if ($v=="b") {
+                    $v: bottom;
+                  }
+                  $x: $x+' '+$v;
+                  $x-t: true;
+                  $i: $i+1;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $c-t: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (unit($v)=='') and ($v!=0) {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v+px;
+                } @else {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v;
+                }
+              }
+              @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")) {
+                $img: 'url("'+$path+$v+'")';
+                $i-t: true;
+              }
+            }
+            // content: $c-t $i-t $x-t $nr1-t $i;
+            @if ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+' '+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $img+' '+$x+' '+$nr1;
+              }
+            }
+            @if ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($x-t=="") {
+              $b: 0 0;
+            }
+            @if ($nr1-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+$img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+$img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($x-t=="") {
+              $b: 0 0 no-repeat;
+            }
+            @if ($nr1-t=="") and ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($c-t=="") and ($x-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr1;
+            }
+            @if ($i-t=="") and ($x-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($i-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+            }
+            @if ($nr1-t=="") and ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              //无意义
+              $b: 'url("'+$path+$bgi+'") 0 0 '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              $b: 'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+            }
+            @if ($nr1-t!="") and ($x-t!="") and ($c-t!="") and ($i-t!="") {
+              $b: unquote($c+' '+$img+' '+$x+' 0'+' '+$nr1)
+            }
+            $b: unquote($b);
+            $zhi: $b;
+          }
+        }
+        @if (length(nth($attr,2))==3) {
+          $list: nth($attr, 2);
+          @each $mv in $list {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            } @else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          //特殊项处理
+          @if (nth($attr,1)=='mp') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            padding: unquote($v1);
+          }
+          @if (nth($attr,1)=='pm') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            margin: unquote($v1);
+          }
+          @if (nth($attr,1)=='who') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            $v3: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 3) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v3: $v3+' '+$mv+px;
+                  } @else {
+                    $v3: $v3+' '+$mv;
+                  }
+                } @else {
+                  $v3: $v3+' '+$mv;
+                }
+              } @else {
+                $v3: $v3+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v2);
+            overflow: unquote($v3);
+
+          }
+          @if (nth($attr,1)=='bdt')
+          or (nth($attr,1)=='bdb')
+          or (nth($attr,1)=='bdl')
+          or (nth($attr,1)=='bdr')
+          or (nth($attr,1)=='bd') {
+            $b: '';
+            $c: '';
+            $w: '';
+            $d: '';
+            $cx: '';
+            $wx: '';
+            $dx: '';
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="s") or ($v=="solid") {
+                  $d: solid;
+                  $dx: true;
+                }
+                @if ($v=="d") or ($v=="dotted") {
+                  $d: dotted;
+                  $dx: true;
+                }
+                @if ($v=="none") {
+                  $d: none;
+                  $dx: false;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $cx: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (type_of($v)=="number") and ($v!=0) {
+                  @if (unit($v)=='') {
+                    $w: $v+px;
+                    $wx: true;
+                  } @else {
+                    $w: $v;
+                    $wx: true;
+                  }
+                } @else {
+                  $w: $v;
+                  $wx: true;
+                }
+              }
+            }
+            @if ($d == "none") {
+              $b: none;
+            } @else {
+              @if ($wx=="") {
+                $b: 1px
+              }
+              @if ($cx=="") {
+                $b: $bdc;
+              }
+              @if ($dx=="") {
+                $b: solid;
+              }
+              @if ($dx=="") and ($wx=="") {
+                $b: 1px solid;
+              }
+              @if ($dx=="") and ($cx=="") {
+                $b: $bdc solid;
+              }
+              @if ($wx=="") and ($cx=="") {
+                $b: 1px $bdc;
+              }
+              @if ($wx=="") and ($cx=="") and ($dx=="") {
+                $b: 1px $bdc solid;
+              }
+              $b: unquote($b+" "+$w+" "+$c+" "+$d);
+            }
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='bdrs') or (nth($attr,1)=='brs') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            -moz-border-radius: unquote($v1);
+            -webkit-border-radius: unquote($v1);
+          }
+          @if (nth($attr,1)=='bg') {
+            $b: '';
+            $c: '';
+            $img: '';
+            $x: '';
+            $nr1: '';
+            $c-t: '';
+            $i-t: '';
+            $x-t: '';
+            $nr1-t: '';
+            $i: 0;
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y") {
+                  @if ($v=="n") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="nr") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="x") {
+                    $v: repeat-x;
+                  }
+                  @if ($v=="y") {
+                    $v: repeat-y;
+                  }
+                  $nr1: $v;
+                  $nr1-t: true;
+                }
+                @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b") {
+                  @if ($v=="c") {
+                    $v: center;
+                  }
+                  @if ($v=="l") {
+                    $v: left;
+                  }
+                  @if ($v=="r") {
+                    $v: right;
+                  }
+                  @if ($v=="t") {
+                    $v: top;
+                  }
+                  @if ($v=="b") {
+                    $v: bottom;
+                  }
+                  $x: $x+' '+$v;
+                  $x-t: true;
+                  $i: $i+1;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $c-t: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (unit($v)=='') and ($v!=0) {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v+px;
+                } @else {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v;
+                }
+              }
+              @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")) {
+                $img: 'url("'+$path+$v+'")';
+                $i-t: true;
+              }
+            }
+            // content: $c-t $i-t $x-t $nr1-t $i;
+            @if ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+' '+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $img+' '+$x+' '+$nr1;
+              }
+            }
+            @if ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($x-t=="") {
+              $b: 0 0;
+            }
+            @if ($nr1-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+$img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+$img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($x-t=="") {
+              $b: 0 0 no-repeat;
+            }
+            @if ($nr1-t=="") and ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($c-t=="") and ($x-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr1;
+            }
+            @if ($i-t=="") and ($x-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($i-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+            }
+            @if ($nr1-t=="") and ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              //无意义
+              $b: 'url("'+$path+$bgi+'") 0 0 '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              $b: 'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+            }
+            $b: unquote($b);
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='f'){
+            $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="string"){
+                @if ($v=="n"){
+                  $d:normal;
+                  $dx:true;
+                }@else {
+                  $d:$v;
+                  $dx:true;
+                }
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if($v==100) or ($v==200) or ($v==300) or ($v>=400){
+                      $c:$v;
+                      $cx:true;
+                    }@else {
+                      $w:$v+px;
+                      $wx:true;
+                    }
+                  }@else{
+                    $w:$v;
+                    $wx:true;
+                  }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }
+            }
+            @if ($wx==""){
+              $zhi:unquote($c $fz $d);
+            }
+            @if ($cx==""){
+              $zhi:unquote(100 $w $d);
+            }
+            @if ($dx==""){
+              $zhi:unquote($c $w normal);
+            }
+            @if ($dx=="") and ($wx==""){
+              $zhi:unquote($c $fz normal);
+            }
+            @if ($dx=="") and ($cx==""){
+              $zhi:unquote(100 $w normal);
+            }
+            @if ($wx=="") and ($cx==""){
+              $zhi:unquote(100 $fz $d);
+            }
+            @if ($wx=="") and ($cx=="") and ($dx==""){
+              $zhi:unquote(100 $fz normal);
+            }
+          }
+          @if (nth($attr,1)=='hx'){
+            $x:'';$a:'';$ax:'';$b:'';$bx:'';$c:'';$cx:'';$d:0;$s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="color"){
+                $c:$v;
+                $cx:true;
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if(abs($d)==0){
+                      $a:$v+px;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v+px;
+                      $bx:true;
+                    }
+                  }@else{
+                    @if(abs($d)==0){
+                      $a:$v;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v;
+                      $bx:true;
+                    }
+                  }
+                }@else{
+                  @if(abs($d)==0){
+                    $a:$v;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v;
+                    $bx:true;
+                  }
+                }
+              }
+            }
+            @if ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$c;
+            }
+            @if ($bx==''){
+              $x:$a+';width:100%;background-color:'+$c;
+            }
+            @if ($cx==''){
+              $x:$a+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($bx==''){
+              $x:$a+';width:100%;background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($bx=='') and ($ax==''){
+              $x:100%+';width:100%;background-color:'+$c;
+            }
+            @if ($bx=='') and ($ax=='') and ($cx==''){
+              $x:100%+';width:100%;background-color:'+$bdc;
+            }
+            @if ($bx!='') and ($ax!='') and ($cx!=''){
+              $x:$a+';width:'+$b+';background-color:'+$c;
+            }
+            $zhi:$x+';overflow:hidden;
+                  font:0/0 normal;
+                  clear:both;
+                  margin:0 auto';
+           // content: $ax $bx $cx $d;
+          }
+
+        }
+        @if (length(nth($attr,2))==2) {
+          $list: nth($attr, 2);
+          @each $mv in $list {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            } @else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          $zhi:$v1;
+          //特殊项处理
+          @if (nth($attr,1)=='mp') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            padding: unquote($v2);
+          }
+          @if (nth($attr,1)=='pm') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            margin: unquote($v2);
+          }
+          @if (nth($attr,1)=='wh') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v2);
+          }
+          @if (nth($attr,1)=='wh-') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v2);
+          }
+          @if (nth($attr,1)=='wo') {
+            $shu: nth($attr, 1);
+            $v1: nth(nth($attr, 2), 1);
+            @if (type_of(nth(nth($attr, 2), 1))=="number") {
+              @if (unit(nth(nth($attr, 2), 1))=='') {
+                @if (abs(nth(nth($attr, 2), 1))!=0) {
+                  $v1: nth(nth($attr, 2), 1)+px;
+                }
+              }
+            }
+            $v2: nth(nth($attr, 2), 2);
+            @if (type_of(nth(nth($attr, 2), 2))=="number") {
+              @if (unit(nth(nth($attr, 2), 2))=='') {
+                @if (abs(nth(nth($attr, 2), 2))!=0) {
+                  $v2: nth(nth($attr, 2), 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            overflow: unquote($v2);
+          }
+          @if (nth($attr,1)=='ho') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            overflow: unquote($v2);
+          }
+          @if (nth($attr,1)=='who') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            $v3: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            @each $mv in nth(nth($attr, 2), 2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v2: $v2+' '+$mv+px;
+                  } @else {
+                    $v2: $v2+' '+$mv;
+                  }
+                } @else {
+                  $v2: $v2+' '+$mv;
+                }
+              } @else {
+                $v2: $v2+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v2);
+            overflow: hidden;
+          }
+          @if (nth($attr,1)=='bdt')
+          or (nth($attr,1)=='bdb')
+          or (nth($attr,1)=='bdl')
+          or (nth($attr,1)=='bdr')
+          or (nth($attr,1)=='bd') {
+            $b: '';
+            $c: '';
+            $w: '';
+            $d: '';
+            $cx: '';
+            $wx: '';
+            $dx: '';
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="s") or ($v=="solid") {
+                  $d: solid;
+                  $dx: true;
+                }
+                @if ($v=="d") or ($v=="dotted") {
+                  $d: dotted;
+                  $dx: true;
+                }
+                @if ($v=="none") {
+                  $d: none;
+                  $dx: false;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $cx: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (type_of($v)=="number") and ($v!=0) {
+                  @if (unit($v)=='') {
+                    $w: $v+px;
+                    $wx: true;
+                  } @else {
+                    $w: $v;
+                    $wx: true;
+                  }
+                } @else {
+                  $w: $v;
+                  $wx: true;
+                }
+              }
+            }
+            @if ($d == "none") {
+              $b: none;
+            } @else {
+              @if ($wx=="") {
+                $b: 1px
+              }
+              @if ($cx=="") {
+                $b: $bdc;
+              }
+              @if ($dx=="") {
+                $b: solid;
+              }
+              @if ($dx=="") and ($wx=="") {
+                $b: 1px solid;
+              }
+              @if ($dx=="") and ($cx=="") {
+                $b: $bdc solid;
+              }
+              @if ($wx=="") and ($cx=="") {
+                $b: 1px $bdc;
+              }
+              @if ($wx=="") and ($cx=="") and ($dx=="") {
+                $b: 1px $bdc solid;
+              }
+              $b: unquote($b+" "+$w+" "+$c+" "+$d);
+            }
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='bdrs')
+          or (nth($attr,1)=='brs') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            -moz-border-radius: unquote($v1);
+            -webkit-border-radius: unquote($v1);
+          }
+          @if (nth($attr,1)=='bg') {
+            $b: '';
+            $c: '';
+            $img: '';
+            $x: '';
+            $nr1: '';
+            $c-t: '';
+            $i-t: '';
+            $x-t: '';
+            $nr1-t: '';
+            $i: 0;
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y") {
+                  @if ($v=="n") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="nr") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="x") {
+                    $v: repeat-x;
+                  }
+                  @if ($v=="y") {
+                    $v: repeat-y;
+                  }
+                  $nr1: $v;
+                  $nr1-t: true;
+                }
+                @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b") {
+                  @if ($v=="c") {
+                    $v: center;
+                  }
+                  @if ($v=="l") {
+                    $v: left;
+                  }
+                  @if ($v=="r") {
+                    $v: right;
+                  }
+                  @if ($v=="t") {
+                    $v: top;
+                  }
+                  @if ($v=="b") {
+                    $v: bottom;
+                  }
+                  $x: $x+' '+$v;
+                  $x-t: true;
+                  $i: $i+1;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $c-t: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (unit($v)=='') and ($v!=0) {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v+px;
+                } @else {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v;
+                }
+              }
+              @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")) {
+                $img: 'url("'+$path+$v+'")';
+                $i-t: true;
+              }
+            }
+             //content: $c-t $i-t $x-t $nr1-t $i;
+            @if ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+' '+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $img+' '+$x+' '+$nr1;
+              }
+            }
+            @if ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($x-t=="") {
+              $b: 0 0;
+            }
+            @if ($nr1-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+$img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+$img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($x-t=="") {
+              $b: 0 0 no-repeat;
+            }
+            @if ($nr1-t=="") and ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($c-t=="") and ($x-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr1;
+            }
+            @if ($i-t=="") and ($x-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($i-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+            }
+            @if ($nr1-t=="") and ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              //无意义
+              $b: 'url("'+$path+$bgi+'") 0 0 '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              $b: 'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+            }
+            $b: unquote($b);
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='f'){
+            $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="string"){
+                @if ($v=="n"){
+                  $d:normal;
+                  $dx:true;
+                }@else {
+                  $d:$v;
+                  $dx:true;
+                }
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if($v==100) or ($v==200) or ($v==300) or ($v>=400){
+                      $c:$v;
+                      $cx:true;
+                    }@else {
+                      $w:$v+px;
+                      $wx:true;
+                    }
+                  }@else{
+                    $w:$v;
+                    $wx:true;
+                  }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }
+            }
+            @if ($wx==""){
+              $zhi:unquote($c $fz $d);
+            }
+            @if ($cx==""){
+              $zhi:unquote(100 $w $d);
+            }
+            @if ($dx==""){
+              $zhi:unquote($c $w normal);
+            }
+            @if ($dx=="") and ($wx==""){
+              $zhi:unquote($c $fz normal);
+            }
+            @if ($dx=="") and ($cx==""){
+              $zhi:unquote(100 $w normal);
+            }
+            @if ($wx=="") and ($cx==""){
+              $zhi:unquote(100 $fz $d);
+            }
+            @if ($wx=="") and ($cx=="") and ($dx==""){
+              $zhi:unquote(100 $fz normal);
+            }
+          }
+          @if (nth($attr,1)=='hx'){
+            $x:'';$a:'';$ax:'';$b:'';$bx:'';$c:'';$cx:'';$d:0;$s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="color"){
+                $c:$v;
+                $cx:true;
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if(abs($d)==0){
+                      $a:$v+px;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v+px;
+                      $bx:true;
+                    }
+                  }@else{
+                    @if(abs($d)==0){
+                      $a:$v;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v;
+                      $bx:true;
+                    }
+                  }
+                }@else{
+                  @if(abs($d)==0){
+                    $a:$v;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v;
+                    $bx:true;
+                  }
+                }
+              }
+            }
+            @if ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$c;
+            }
+            @if ($bx==''){
+              $x:$a+';width:100%;background-color:'+$c;
+            }
+            @if ($cx==''){
+              $x:$a+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($bx==''){
+              $x:$a+';width:100%;background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($bx=='') and ($ax==''){
+              $x:100%+';width:100%;background-color:'+$c;
+            }
+            @if ($bx=='') and ($ax=='') and ($cx==''){
+              $x:100%+';width:100%;background-color:'+$bdc;
+            }
+            @if ($bx!='') and ($ax!='') and ($cx!=''){
+              $x:$a+';width:'+$b+';background-color:'+$c;
+            }
+            $zhi:$x+';overflow:hidden;
+                  font:0/0 normal;
+                  clear:both;
+                  margin:0 auto';
+            //content: $ax $bx $cx $d;
+          }
+
+        }
+        @if (length(nth($attr,2))==1) {
+          $list: nth($attr, 2);
+          @each $mv in $list {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            } @else {
+              $v1: $v1+' '+$mv;
+            }
+             //content: $v1;
+          }
+          $zhi: $v1;
+          //特殊项处理
+          @if (nth($attr,1)=='n') {
+            $note:'/*';
+            $shu: nth($attr, 1);
+            $v1: '';
+            @each $mv in nth($attr,2) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1+'*/';
+          }
+          @if (nth($attr,1)=='con') {
+            $shu: nth($attr, 1);
+            $zhi: nth($attr, 2);
+          }
+          @if (nth($attr,1)=='lh')
+          or (nth($attr,1) =='z')
+          or (nth($attr,1) =='z-')
+          or (nth($attr,1) =='op')
+          or (nth($attr,1) =='fw') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+          }
+          @if (nth($attr,1)=='mp') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            padding: 0;
+          }
+          @if (nth($attr,1)=='lhh') {
+            $shu: nth($attr, 1);
+            $v1: nth(nth($attr, 2), 1);
+            @if (type_of(nth(nth($attr, 2), 1))=="number") {
+              @if (unit(nth(nth($attr, 2), 1))=='') {
+                @if (abs(nth(nth($attr, 2), 1))!=0) {
+                  $v1: nth(nth($attr, 2), 1)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v1);
+          }
+          @if (nth($attr,1)=='mp-') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            padding: unquote($v1);
+          }
+          @if (nth($attr,1)=='pm') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            margin:0;
+          }
+          @if (nth($attr,1)=='pm-') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in nth(nth($attr, 2), 1) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            margin:unquote($v1);
+          }
+          @if (nth($attr,1)=='wh') {
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth($attr, 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            height: auto;
+          }
+          @if (nth($attr,1)=='wh-') {
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth($attr, 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            height: unquote($v1);
+          }
+          @if (nth($attr,1)=='wo') {
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth($attr, 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            overflow:hidden;
+          }
+          @if (nth($attr,1)=='ho') {
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth($attr, 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            overflow: hidden;
+          }
+          @if (nth($attr,1)=='who') {
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth($attr, 2)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            height: auto;
+            overflow: hidden;
+          }
+          @if (nth($attr,1)=='bdt')
+          or (nth($attr,1) =='bdb')
+          or (nth($attr,1) =='bdl')
+          or (nth($attr,1) =='bdr')
+          or (nth($attr,1) =='bd') {
+            $b: '';
+            $c: '';
+            $w: '';
+            $d: '';
+            $cx: '';
+            $wx: '';
+            $dx: '';
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="s") or ($v=="solid") {
+                  $d: solid;
+                  $dx: true;
+                }
+                @if ($v=="d") or ($v=="dotted") {
+                  $d: dotted;
+                  $dx: true;
+                }
+                @if ($v=="none") {
+                  $d: none;
+                  $dx: false;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $cx: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (type_of($v)=="number") and ($v!=0) {
+                  @if (unit($v)=='') {
+                    $w: $v+px;
+                    $wx: true;
+                  } @else {
+                    $w: $v;
+                    $wx: true;
+                  }
+                } @else {
+                  $w: $v;
+                  $wx: true;
+                }
+              }
+            }
+            @if ($d == "none") {
+              $b: none;
+            } @else {
+              @if ($wx=="") {
+                $b: 1px
+              }
+              @if ($cx=="") {
+                $b: $bdc;
+              }
+              @if ($dx=="") {
+                $b: solid;
+              }
+              @if ($dx=="") and ($wx=="") {
+                $b: 1px solid;
+              }
+              @if ($dx=="") and ($cx=="") {
+                $b: $bdc solid;
+              }
+              @if ($wx=="") and ($cx=="") {
+                $b: 1px $bdc;
+              }
+              @if ($wx=="") and ($cx=="") and ($dx=="") {
+                $b: 1px $bdc solid;
+              }
+              $b: unquote($b+" "+$w+" "+$c+" "+$d);
+            }
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='bdrs')
+          or (nth($attr,1) =='brs') {
+            $shu: nth($attr, 1);
+            $v1: '';
+            $v2: '';
+            @each $mv in (nth($attr, 2)) {
+              @if (type_of($mv)=="number") {
+                @if (unit($mv)=='') {
+                  @if (abs($mv)!=0) {
+                    $v1: $v1+' '+$mv+px;
+                  } @else {
+                    $v1: $v1+' '+$mv;
+                  }
+                } @else {
+                  $v1: $v1+' '+$mv;
+                }
+              } @else {
+                $v1: $v1+' '+$mv;
+              }
+            }
+            $zhi: $v1;
+            -moz-border-radius: unquote($v1);
+            -webkit-border-radius: unquote($v1);
+          }
+          @if (nth($attr,1)=='bgs'){
+            $shu: nth($attr, 1);
+            $v1: nth($attr, 2);
+            @if (type_of(nth($attr, 2))=="number") {
+              @if (unit(nth($attr, 2))=='') {
+                @if (abs(nth($attr, 2))!=0) {
+                  $v1: nth(nth($attr, 2), 1)+px;
+                }
+              }
+            }
+            $zhi: $v1;
+            -moz-background-size: unquote($v1);
+            -webkit-background-size: unquote($v1);
+          }
+          @if (nth($attr,1)=='bg') {
+            $b: '';
+            $c: '';
+            $img: '';
+            $x: '';
+            $nr1: '';
+            $c-t: '';
+            $i-t: '';
+            $x-t: '';
+            $nr1-t: '';
+            $i: 0;
+            $s: nth($attr, 2);
+            @each $v in $s {
+              @if (type_of($v)=="string") {
+                @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y") {
+                  @if ($v=="n") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="nr") {
+                    $v: no-repeat;
+                  }
+                  @if ($v=="x") {
+                    $v: repeat-x;
+                  }
+                  @if ($v=="y") {
+                    $v: repeat-y;
+                  }
+                  $nr1: $v;
+                  $nr1-t: true;
+                }
+                @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b") {
+                  @if ($v=="c") {
+                    $v: center;
+                  }
+                  @if ($v=="l") {
+                    $v: left;
+                  }
+                  @if ($v=="r") {
+                    $v: right;
+                  }
+                  @if ($v=="t") {
+                    $v: top;
+                  }
+                  @if ($v=="b") {
+                    $v: bottom;
+                  }
+                  $x: $x+' '+$v;
+                  $x-t: true;
+                  $i: $i+1;
+                }
+              }
+              @if (type_of($v)=="color") {
+                $c: $v;
+                $c-t: true;
+              }
+              @if (type_of($v)=="number") {
+                @if (unit($v)=='') and ($v!=0) {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v+px;
+                } @else {
+                  $i: $i+1;
+                  $x-t: true;
+                  $x: $x+' '+$v;
+                }
+              }
+              @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")) {
+                $img: 'url("'+$path+$v+'")';
+                $i-t: true;
+              }
+            }
+            // content: $c-t $i-t $x-t $nr1-t $i;
+            @if ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+' '+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $img+' '+$x+' '+$nr1;
+              }
+            }
+            @if ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($x-t=="") {
+              $b: 0 0;
+            }
+            @if ($nr1-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+$img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+$img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($x-t=="") {
+              $b: 0 0 no-repeat;
+            }
+            @if ($nr1-t=="") and ($c-t=="") {
+              @if ($i==1) {
+                $b: $img+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $img+$x+' '+$nr;
+              }
+            }
+            @if ($nr1-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: $c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+              }
+            }
+            @if ($c-t=="") and ($x-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr1;
+            }
+            @if ($i-t=="") and ($x-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") {
+              $b: $img+' '+'0 0'+' '+$nr;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($i-t=="") {
+              $b: $c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+            }
+            @if ($nr1-t=="") and ($c-t=="") and ($i-t=="") {
+              @if ($i==1) {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+              } @else {
+                $b: 'url("'+$path+$bgi+'")'+$x+' '+$nr;
+              }
+            }
+            @if ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              //无意义
+              $b: 'url("'+$path+$bgi+'") 0 0 '+$nr1;
+            }
+            @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t=="") {
+              $b: 'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+            }
+            @if (nth($attr,2)=="none") {
+              $b: none;
+            }
+            $b: unquote($b);
+            $zhi: $b;
+          }
+          @if (nth($attr,1)=='f'){
+            $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="string"){
+                @if ($v=="n"){
+                  $d:normal;
+                  $dx:true;
+                }@else {
+                  $d:$v;
+                  $dx:true;
+                }
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if($v==100) or ($v==200) or ($v==300) or ($v>=400){
+                      $c:$v;
+                      $cx:true;
+                    }@else {
+                      $w:$v+px;
+                      $wx:true;
+                    }
+                  }@else{
+                    $w:$v;
+                    $wx:true;
+                  }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }
+            }
+            @if ($wx==""){
+              $zhi:unquote($c $fz $d);
+            }
+            @if ($cx==""){
+              $zhi:unquote(100 $w $d);
+            }
+            @if ($dx==""){
+              $zhi:unquote($c $w normal);
+            }
+            @if ($dx=="") and ($wx==""){
+              $zhi:unquote($c $fz normal);
+            }
+            @if ($dx=="") and ($cx==""){
+              $zhi:unquote(100 $w normal);
+            }
+            @if ($wx=="") and ($cx==""){
+              $zhi:unquote(100 $fz $d);
+            }
+            @if ($wx=="") and ($cx=="") and ($dx==""){
+              $zhi:unquote(100 $fz normal);
+            }
+          }
+          @if (nth($attr,1)=='hx'){
+            $x:'';$a:'';$ax:'';$b:'';$bx:'';$c:'';$cx:'';$d:0;$s:nth($attr, 2);
+            @each $v in $s{
+              @if (type_of($v)=="color"){
+                $c:$v;
+                $cx:true;
+              }
+              @if (type_of($v)=="number"){
+                @if ($v!=0){
+                  @if (unit($v)==''){
+                    @if(abs($d)==0){
+                      $a:$v+px;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v+px;
+                      $bx:true;
+                    }
+                  }@else{
+                    @if(abs($d)==0){
+                      $a:$v;
+                      $ax:true;
+                      $d:$d+1;
+                    }@else {
+                      $b:$v;
+                      $bx:true;
+                    }
+                  }
+                }@else{
+                  @if(abs($d)==0){
+                    $a:$v;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v;
+                    $bx:true;
+                  }
+                }
+              }
+            }
+            @if ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$c;
+            }
+            @if ($bx==''){
+              $x:$a+';width:100%;background-color:'+$c;
+            }
+            @if ($cx==''){
+              $x:$a+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($bx==''){
+              $x:$a+';width:100%;background-color:'+$bdc;
+            }
+            @if ($cx=='') and ($ax==''){
+              $x:100%+';width:'+$b+';background-color:'+$bdc;
+            }
+            @if ($bx=='') and ($ax==''){
+              $x:100%+';width:100%;background-color:'+$c;
+            }
+            @if ($bx=='') and ($ax=='') and ($cx==''){
+              $x:100%+';width:100%;background-color:'+$bdc;
+            }
+            @if ($bx!='') and ($ax!='') and ($cx!=''){
+              $x:$a+';width:'+$b+';background-color:'+$c;
+            }
+            $zhi:$x+';overflow:hidden;
+                  font:0/0 normal;
+                  clear:both;
+                  margin:0 auto';
+            //content: $ax $bx $cx $d;
+          }
+        }
+      }
+      @if (length($attr)==3){//只有3个值时
+        $shu:nth($attr,1);$v1:'';$v2:'';
+        $list:nth($attr,2),nth($attr,3);
+        //特殊项处理
+        @if ($shu=='p')
+        or ($shu=='pl')
+        or ($shu=='pr')
+        or ($shu=='pt')
+        or ($shu=='pb')
+        or ($shu=='pv')
+        or ($shu=='ph')
+        or ($shu=='m')
+        or ($shu=='mt')
+        or ($shu=='mb')
+        or ($shu=='mr')
+        or ($shu=='ml'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+        }
+        @if ($shu=='mp-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v1);
+        }
+        @if ($shu=='pm-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v1);
+        }
+        @if ($shu=='pm'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v2);
+        }
+        @if ($shu=='mp'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v2);
+        }
+        @if ($shu=='lhh'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          height:unquote($v2);
+        }
+        @if ($shu=='wh'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          height:unquote($v2);
+        }
+        @if (nth($attr,1)=='wh-'){
+          @if (type_of(nth($attr,2))=="number"){
+            @if (unit(nth($attr,2))==''){
+              @if (abs(nth($attr,2))!=0){
+                $v1: nth($attr,2)+px;
+              }
+            }
+          }
+          $zhi:$v1;height:unquote($v1);
+        }
+        @if ($shu=='wo'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          overflow:unquote($v2);
+        }
+        @if ($shu=='ho'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          overflow:unquote($v2);
+        }
+        @if ($shu=='who'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          height:unquote($v2);overflow: hidden;
+        }
+        @if (nth($attr,1)=='bdt')
+        or (nth($attr,1)=='bdb')
+        or (nth($attr,1)=='bdl')
+        or (nth($attr,1)=='bdr')
+        or (nth($attr,1)=='bd'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2),nth($attr, 3);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="s") or ($v=="solid"){
+                $d:solid;
+                $dx:true;
+              }
+              @if ($v=="d") or ($v=="dotted"){
+                $d:dotted;
+                $dx:true;
+              }
+              @if ($v=="none"){
+                $d:none;
+                $dx:false;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $cx:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (type_of($v)=="number") and ($v!=0){
+                @if (unit($v)==''){
+                  $w:$v+px;
+                  $wx:true;
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+          @if ($d == "none"){
+            $b:none;
+          }@else{
+            @if ($wx==""){$b:1px}
+            @if ($cx==""){$b:$bdc;}
+            @if ($dx==""){$b:solid;}
+            @if ($dx=="") and ($wx==""){$b:1px solid;}
+            @if ($dx=="") and ($cx==""){$b:$bdc solid;}
+            @if ($wx=="") and ($cx==""){$b:1px $bdc;}
+            @if ($wx=="") and ($cx=="") and ($dx==""){$b:1px $bdc solid;}
+            $b:unquote($b+" "+$w+" "+$c+" "+$d);
+          }
+          $zhi:$b;
+        }
+        @if (nth($attr,1)=='bdrs') or (nth($attr,1)=='brs'){
+          @each $mv in nth($attr,2),nth($attr,3) {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                }@else {
+                  $v1: $v1+' '+$mv;
+                }
+              }@else {
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          $zhi: $v1;-moz-border-radius:unquote($v1);-webkit-border-radius:unquote($v1);
+        }
+        @if (nth($attr,1)=='bgs'){
+          @each $mv in nth($attr,2){
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                }@else {
+                  $v1: $v1+' '+$mv;
+                }
+              }@else {
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v2: $v2+' '+$mv+px;
+                }@else {
+                  $v2: $v2+' '+$mv;
+                }
+              }@else {
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+          }
+          $zhi: unquote($v1) unquote($v2);-moz-background-size:unquote($v1) unquote($v2);-webkit-background-size:unquote($v1) unquote($v2);
+        }
+        @if (nth($attr,1)=='bgp'){
+          @each $mv in nth($attr,2){
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                }@else {
+                  $v1: $v1+' '+$mv;
+                }
+              }@else {
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v2: $v2+' '+$mv+px;
+                }@else {
+                  $v2: $v2+' '+$mv;
+                }
+              }@else {
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+          }
+          $zhi: unquote($v1) unquote($v2);
+        }
+        @if (nth($attr,1)=='bg'){
+          $b:'';$c:'';$img:'';$x:'';$nr1:'';$c-t:'';$i-t:'';$x-t:'';$nr1-t:'';$i:0; $s:nth($attr, 2),nth($attr, 3);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y"){
+                @if ($v=="n"){$v:no-repeat;}
+                @if ($v=="nr"){$v:no-repeat;}
+                @if ($v=="x"){$v:repeat-x;}
+                @if ($v=="y"){$v:repeat-y;}
+                $nr1:$v;
+                $nr1-t:true;
+              }
+              @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b"){
+                @if ($v=="c"){$v:center;}
+                @if ($v=="l"){$v:left;}
+                @if ($v=="r"){$v:right;}
+                @if ($v=="t"){$v:top;}
+                @if ($v=="b"){$v:bottom;}
+                $x:$x+' '+$v;
+                $x-t:true;
+                $i:$i+1;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $c-t:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (unit($v)=='') and ($v!=0){
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v+px;
+              }@else{
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v;
+              }
+            }
+            @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")){
+              $img:'url("'+$path+$v+'")';
+              $i-t:true;
+            }
+          }
+          // content: $c-t $i-t $x-t $nr1-t $i;
+          @if ($c-t==""){
+            @if ($i==1){
+              $b:$img+' '+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$img+' '+$x+' '+$nr1;
+            }
+          }
+          @if ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($x-t==""){
+            $b:$c+' '+$img+' 0 0 '+$nr1;
+          }
+          @if ($nr1-t==""){
+            @if ($i==1){
+              $b:$c+' '+$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($x-t==""){
+            $b:$c +' ' + $img +' 0 0 no-repeat';
+          }
+          @if ($nr1-t=="") and ($c-t==""){
+            @if ($i==1){
+              $b:$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($c-t=="") and ($x-t==""){
+            $b:$img+' '+'0 0'+' '+$nr1;
+          }
+          @if ($i-t=="") and ($x-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t==""){
+            $b:$img+' '+'0 0'+' '+$nr;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($i-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+          }
+          @if ($nr1-t=="") and ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($x-t=="") and ($c-t=="") and ($i-t==""){
+            //无意义
+            $b:'url("'+$path+$bgi+'") 0 0 '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t==""){
+            $b:'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+          }
+          $b:unquote($b);
+          $zhi: $b;
+        }
+        @if (nth($attr,1)=='f'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2),nth($attr, 3);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="n"){
+                $d:normal;
+                $dx:true;
+              }@else {
+                $d:$v;
+                $dx:true;
+              }
+            }
+            @if (type_of($v)=="number"){
+              @if ($v!=0){
+                @if (unit($v)==''){
+                  @if((abs($v)==100) or (abs($v)==200) or (abs($v)==300) or (abs($v)>=400)){
+                    $c:$v;
+                    $cx:true;
+                  }@else {
+                    $w:$v+px;
+                    $wx:true;
+                    content: $v;
+                  }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+          @if ($wx==""){
+            $zhi:unquote($c $fz $d);
+          }
+          @if ($cx==""){
+            $zhi:unquote(100 $w $d);
+          }
+          @if ($dx==""){
+            $zhi:unquote($c $w normal);
+          }
+          @if ($dx=="") and ($wx==""){
+            $zhi:unquote($c $fz normal);
+          }
+          @if ($dx=="") and ($cx==""){
+            $zhi:unquote(100 $w normal);
+          }
+          @if ($wx=="") and ($cx==""){
+            $zhi:unquote(100 $fz $d);
+          }
+          @if ($wx=="") and ($cx=="") and ($dx==""){
+            $zhi:unquote(100 $fz normal);
+          }
+          @if ($wx!="") and ($cx!="") and ($dx!=""){
+            $zhi:unquote($c $w $d);
+          }
+          //content: $c;
+        }
+        @if (nth($attr,1)=='hx'){
+          $x:'';$a:'';$ax:'';$b:'';$bx:'';$c:'';$cx:'';$d:0;$s:nth($attr, 2),nth($attr, 3);
+          @each $v in $s{
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $cx:true;
+            }
+            @if (type_of($v)=="number"){
+              @if ($v!=0){
+                @if (unit($v)==''){
+                  @if(abs($d)==0){
+                    $a:$v+px;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v+px;
+                    $bx:true;
+                  }
+                }@else{
+                  @if(abs($d)==0){
+                    $a:$v;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v;
+                    $bx:true;
+                  }
+                }
+              }@else{
+                @if(abs($d)==0){
+                  $a:$v;
+                  $ax:true;
+                  $d:$d+1;
+                }@else {
+                  $b:$v;
+                  $bx:true;
+                }
+              }
+            }
+          }
+          @if ($ax==''){
+            $x:100%+';width:'+$b+';background-color:'+$c;
+          }
+          @if ($bx==''){
+            $x:$a+';width:100%;background-color:'+$c;
+          }
+          @if ($cx==''){
+            $x:$a+';width:'+$b+';background-color:'+$bdc;
+          }
+          @if ($cx=='') and ($bx==''){
+            $x:$a+';width:100%;background-color:'+$bdc;
+          }
+          @if ($cx=='') and ($ax==''){
+            $x:100%+';width:'+$b+';background-color:'+$bdc;
+          }
+          @if ($bx=='') and ($ax==''){
+            $x:100%+';width:100%;background-color:'+$c;
+          }
+          @if ($bx=='') and ($ax=='') and ($cx==''){
+            $x:100%+';width:100%;background-color:'+$bdc;
+          }
+          @if ($bx!='') and ($ax!='') and ($cx!=''){
+            $x:$a+';width:'+$b+';background-color:'+$c;
+          }
+          $zhi:$x+';overflow:hidden;
+                  font:0/0 normal;
+                  clear:both;
+                  margin:0 auto';
+          //content: $ax $bx $cx $d;
+        }
+      }
+      @if (length($attr)==4){//只有3个值时
+        $shu:nth($attr,1);$v1:'';$v2:'';$v3:'';
+        $list:nth($attr,2),nth($attr,3),nth($attr,4);
+        //特殊项处理
+        @if ($shu=='p')
+        or ($shu=='pl')
+        or ($shu=='pr')
+        or ($shu=='pt')
+        or ($shu=='pb')
+        or ($shu=='m')
+        or ($shu=='mt')
+        or ($shu=='mb')
+        or ($shu=='mr')
+        or ($shu=='ml'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+        }
+        @if ($shu=='mp-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v1);
+        }
+        @if ($shu=='pm-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v1);
+        }
+        @if ($shu=='pm'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v2);
+        }
+        @if ($shu=='mp'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v2);
+        }
+        @if ($shu=='who'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,4) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v3: $v3+' '+$mv+px;
+                }@else{
+                  $v3: $v3+' '+$mv;
+                }
+              }@else{
+                $v3: $v3+' '+$mv;
+              }
+            }@else {
+              $v3: $v3+' '+$mv;
+            }
+          }
+          $zhi:$v1;
+          height:unquote($v2);overflow: unquote($v3);
+        }
+        @if (nth($attr,1)=='bdt')
+        or (nth($attr,1) =='bdb')
+        or (nth($attr,1) =='bdl')
+        or (nth($attr,1) =='bdr')
+        or (nth($attr,1) =='bd'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2),nth($attr, 3),nth($attr, 4);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="s") or ($v=="solid"){
+                $d:solid;
+                $dx:true;
+              }
+              @if ($v=="d") or ($v=="dotted"){
+                $d:dotted;
+                $dx:true;
+              }
+              @if ($v=="none"){
+                $d:none;
+                $dx:false;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $cx:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (type_of($v)=="number") and ($v!=0){
+                @if (unit($v)==''){
+                  $w:$v+px;
+                  $wx:true;
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+          @if ($d == "none"){
+            $b:none;
+          }@else{
+            @if ($wx==""){$b:1px}
+            @if ($cx==""){$b:$bdc;}
+            @if ($dx==""){$b:solid;}
+            @if ($dx=="") and ($wx==""){$b:1px solid;}
+            @if ($dx=="") and ($cx==""){$b:$bdc solid;}
+            @if ($wx=="") and ($cx==""){$b:1px $bdc;}
+            @if ($wx=="") and ($cx=="") and ($dx==""){$b:1px $bdc solid;}
+            $b:unquote($b+" "+$w+" "+$c+" "+$d);
+          }
+          $zhi:$b;
+        }
+        @if (nth($attr,1)=='f'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2),nth($attr, 3),nth($attr, 4);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="n"){
+                $d:normal;
+                $dx:true;
+              }@else {
+                $d:$v;
+                $dx:true;
+              }
+            }
+            @if (type_of($v)=="number"){
+              @if ($v!=0){
+                @if (unit($v)==''){
+                   @if($v==100) or ($v==200) or ($v==300) or ($v>=400){
+                     $c:$v;
+                     $cx:true;
+                   }@else {
+                     $w:$v+px;
+                     $wx:true;
+                   }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+
+          @if ($wx==""){$b:$fz}
+          @if ($cx==""){$b:100;}
+          @if ($dx==""){$b:normal;}
+          @if ($dx=="") and ($wx==""){$b:$fz normal;}
+          @if ($dx=="") and ($cx==""){$b:100 normal;}
+          @if ($wx=="") and ($cx==""){$b:100 $fz;}
+          @if ($wx=="") and ($cx=="") and ($dx==""){$b:100 $fz normal;}
+          $b:unquote($b+" "+$w+" "+$c+" "+$d);
+          $zhi:$b;
+        }
+        @if (nth($attr,1)=='bdrs')
+        or  (nth($attr,1)=='brs'){
+          @each $mv in nth($attr,2),nth($attr,3),nth($attr,4) {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                }@else {
+                  $v1: $v1+' '+$mv;
+                }
+              }@else {
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          $zhi: $v1;-moz-border-radius:unquote($v1);-webkit-border-radius:unquote($v1);
+        }
+        @if (nth($attr,1)=='bg'){
+          $b:'';$c:'';$img:'';$x:'';$nr1:'';$c-t:'';$i-t:'';$x-t:'';$nr1-t:'';$i:0; $s:nth($attr, 2),nth($attr, 3),nth($attr, 4);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y"){
+                @if ($v=="n"){$v:no-repeat;}
+                @if ($v=="nr"){$v:no-repeat;}
+                @if ($v=="x"){$v:repeat-x;}
+                @if ($v=="y"){$v:repeat-y;}
+                $nr1:$v;
+                $nr1-t:true;
+              }
+              @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b"){
+                @if ($v=="c"){$v:center;}
+                @if ($v=="l"){$v:left;}
+                @if ($v=="r"){$v:right;}
+                @if ($v=="t"){$v:top;}
+                @if ($v=="b"){$v:bottom;}
+                $x:$x+' '+$v;
+                $x-t:true;
+                $i:$i+1;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $c-t:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (unit($v)=='') and ($v!=0){
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v+px;
+              }@else{
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v;
+              }
+            }
+            @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")){
+              $img:'url("'+$path+$v+'")';
+              $i-t:true;
+            }
+          }
+          // content: $c-t $i-t $x-t $nr1-t $i;
+          @if ($c-t==""){
+            @if ($i==1){
+              $b:$img+' '+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$img+' '+$x+' '+$nr1;
+            }
+          }
+          @if ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($x-t==""){
+            $b:$c+' '+$img+' 0 0 '+$nr1;
+          }
+          @if ($nr1-t==""){
+            @if ($i==1){
+              $b:$c+' '+$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($x-t==""){
+            $b:$c +' ' + $img +' 0 0 no-repeat';
+          }
+          @if ($nr1-t=="") and ($c-t==""){
+            @if ($i==1){
+              $b:$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($c-t=="") and ($x-t==""){
+            $b:$img+' '+'0 0'+' '+$nr1;
+          }
+          @if ($i-t=="") and ($x-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t==""){
+            $b:$img+' '+'0 0'+' '+$nr;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($i-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+          }
+          @if ($nr1-t=="") and ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($x-t=="") and ($c-t=="") and ($i-t==""){
+            //无意义
+            $b:'url("'+$path+$bgi+'") 0 0 '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t==""){
+            $b:'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+          }
+          $b:unquote($b);
+          $zhi: $b;
+        }
+        @if (nth($attr,1)=='f'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:''; $s:nth($attr, 2),nth($attr, 3),nth($attr, 4);
+          @each $v in $s{
+            @if (type_of($v)=="string"){
+              @if ($v=="n"){
+                $d:normal;
+                $dx:true;
+              }@else {
+                $d:$v;
+                $dx:true;
+              }
+            }
+            @if (type_of($v)=="number"){
+              @if ($v!=0){
+                @if (unit($v)==''){
+                  @if((abs($v)==100) or (abs($v)==200) or (abs($v)==300) or (abs($v)>=400)){
+                    $c:$v;
+                    $cx:true;
+                  }@else {
+                    $w:$v+px;
+                    $wx:true;
+                    content: $v;
+                  }
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+          @if ($wx==""){
+            $zhi:unquote($c $fz $d);
+          }
+          @if ($cx==""){
+            $zhi:unquote(100 $w $d);
+          }
+          @if ($dx==""){
+            $zhi:unquote($c $w normal);
+          }
+          @if ($dx=="") and ($wx==""){
+            $zhi:unquote($c $fz normal);
+          }
+          @if ($dx=="") and ($cx==""){
+            $zhi:unquote(100 $w normal);
+          }
+          @if ($wx=="") and ($cx==""){
+            $zhi:unquote(100 $fz $d);
+          }
+          @if ($wx=="") and ($cx=="") and ($dx==""){
+            $zhi:unquote(100 $fz normal);
+          }
+          @if ($wx!="") and ($cx!="") and ($dx!=""){
+            $zhi:unquote($c $w $d);
+          }
+          //content: $c;
+        }
+        @if (nth($attr,1)=='hx'){
+          $x:'';$a:'';$ax:'';$b:'';$bx:'';$c:'';$cx:'';$d:0;$s:nth($attr, 2),nth($attr, 3),nth($attr, 4);
+          @each $v in $s{
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $cx:true;
+            }
+            @if (type_of($v)=="number"){
+              @if ($v!=0){
+                @if (unit($v)==''){
+                  @if(abs($d)==0){
+                    $a:$v+px;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v+px;
+                    $bx:true;
+                  }
+                }@else{
+                  @if(abs($d)==0){
+                    $a:$v;
+                    $ax:true;
+                    $d:$d+1;
+                  }@else {
+                    $b:$v;
+                    $bx:true;
+                  }
+                }
+              }@else{
+                @if(abs($d)==0){
+                  $a:$v;
+                  $ax:true;
+                  $d:$d+1;
+                }@else {
+                  $b:$v;
+                  $bx:true;
+                }
+              }
+            }
+          }
+          @if ($ax==''){
+            $x:100%+';width:'+$b+';background-color:'+$c;
+          }
+          @if ($bx==''){
+            $x:$a+';width:100%;background-color:'+$c;
+          }
+          @if ($cx==''){
+            $x:$a+';width:'+$b+';background-color:'+$bdc;
+          }
+          @if ($cx=='') and ($bx==''){
+            $x:$a+';width:100%;background-color:'+$bdc;
+          }
+          @if ($cx=='') and ($ax==''){
+            $x:100%+';width:'+$b+';background-color:'+$bdc;
+          }
+          @if ($bx=='') and ($ax==''){
+            $x:100%+';width:100%;background-color:'+$c;
+          }
+          @if ($bx=='') and ($ax=='') and ($cx==''){
+            $x:100%+';width:100%;background-color:'+$bdc;
+          }
+          @if ($bx!='') and ($ax!='') and ($cx!=''){
+            $x:$a+';width:'+$b+';background-color:'+$c;
+          }
+          $zhi:$x+';overflow:hidden;
+                  font:0/0 normal;
+                  clear:both;
+                  margin:0 auto';
+          //content: $ax $bx $cx $d;
+        }
+      }
+      @if (length($attr)==5){//只有3个值时
+        $shu:nth($attr,1);$v1:'';$v2:'';$v3:'';
+        $list:nth($attr,2),nth($attr,3),nth($attr,4),nth($attr,5);
+        //特殊项处理
+        @if ($shu=='p')
+        or ($shu=='pl')
+        or ($shu=='pr')
+        or ($shu=='pt')
+        or ($shu=='pb')
+        or ($shu=='m')
+        or ($shu=='mt')
+        or ($shu=='mb')
+        or ($shu=='mr')
+        or ($shu=='ml'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+        }
+        @if ($shu=='mp-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v1);
+        }
+        @if ($shu=='pm-'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v1);
+        }
+        @if ($shu=='pm'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          margin:unquote($v2);
+        }
+        @if ($shu=='mp'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+            // content: $v1;
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+            // content: $v1;
+          }
+          $zhi:$v1;
+          padding:unquote($v2);
+        }
+        @if ($shu=='who'){
+          @each $mv in nth($attr,2) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v1: $v1+' '+$mv+px;
+                }@else{
+                  $v1: $v1+' '+$mv;
+                }
+              }@else{
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,3) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v2: $v2+' '+$mv+px;
+                }@else{
+                  $v2: $v2+' '+$mv;
+                }
+              }@else{
+                $v2: $v2+' '+$mv;
+              }
+            }@else {
+              $v2: $v2+' '+$mv;
+            }
+          }
+          @each $mv in nth($attr,4) {
+            @if (type_of($mv)=="number"){
+              @if (unit($mv)==''){
+                @if (abs($mv)!=0){
+                  $v3: $v3+' '+$mv+px;
+                }@else{
+                  $v3: $v3+' '+$mv;
+                }
+              }@else{
+                $v3: $v3+' '+$mv;
+              }
+            }@else {
+              $v3: $v3+' '+$mv;
+            }
+          }
+          $zhi:$v1;
+          height:unquote($v2);overflow: unquote($v3);
+        }
+        @if (nth($attr,1)=='bdt')
+        or (nth($attr,1)=='bdb')
+        or (nth($attr,1)=='bdl')
+        or (nth($attr,1)=='bdr')
+        or (nth($attr,1)=='bd'){
+          $b:'';$c:'';$w:'';$d:'';$cx:'';$wx:'';$dx:'';
+          @each $v in $list{
+            @if (type_of($v)=="string"){
+              @if ($v=="s") or ($v=="solid"){
+                $d:solid;
+                $dx:true;
+              }
+              @if ($v=="d") or ($v=="dotted"){
+                $d:dotted;
+                $dx:true;
+              }
+              @if ($v=="none"){
+                $d:none;
+                $dx:false;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $cx:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (type_of($v)=="number") and ($v!=0){
+                @if (unit($v)==''){
+                  $w:$v+px;
+                  $wx:true;
+                }@else{
+                  $w:$v;
+                  $wx:true;
+                }
+              }@else{
+                $w:$v;
+                $wx:true;
+              }
+            }
+          }
+          @if ($d == "none"){
+            $b:none;
+          }@else{
+            @if ($wx==""){$b:1px}
+            @if ($cx==""){$b:$bdc;}
+            @if ($dx==""){$b:solid;}
+            @if ($dx=="") and ($wx==""){$b:1px solid;}
+            @if ($dx=="") and ($cx==""){$b:$bdc solid;}
+            @if ($wx=="") and ($cx==""){$b:1px $bdc;}
+            @if ($wx=="") and ($cx=="") and ($dx==""){$b:1px $bdc solid;}
+            $b:unquote($b+" "+$w+" "+$c+" "+$d);
+          }
+          $zhi:$b;
+        }
+        @if (nth($attr,1)=='bdrs') or (nth($attr,1)=='brs'){
+          @each $mv in $list {
+            @if (type_of($mv)=="number") {
+              @if (unit($mv)=='') {
+                @if (abs($mv)!=0) {
+                  $v1: $v1+' '+$mv+px;
+                }@else {
+                  $v1: $v1+' '+$mv;
+                }
+              }@else {
+                $v1: $v1+' '+$mv;
+              }
+            }@else {
+              $v1: $v1+' '+$mv;
+            }
+          }
+          $zhi: $v1;-moz-border-radius:unquote($v1);-webkit-border-radius:unquote($v1);
+        }
+        @if (nth($attr,1)=='bg'){
+          $b:'';$c:'';$img:'';$x:'';$nr1:'';$c-t:'';$i-t:'';$x-t:'';$nr1-t:'';$i:0;
+          @each $v in $list{
+            @if (type_of($v)=="string"){
+              @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y"){
+                @if ($v=="n"){$v:no-repeat;}
+                @if ($v=="nr"){$v:no-repeat;}
+                @if ($v=="x"){$v:repeat-x;}
+                @if ($v=="y"){$v:repeat-y;}
+                $nr1:$v;
+                $nr1-t:true;
+              }
+              @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b"){
+                @if ($v=="c"){$v:center;}
+                @if ($v=="l"){$v:left;}
+                @if ($v=="r"){$v:right;}
+                @if ($v=="t"){$v:top;}
+                @if ($v=="b"){$v:bottom;}
+                $x:$x+' '+$v;
+                $x-t:true;
+                $i:$i+1;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $c-t:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (unit($v)=='') and ($v!=0){
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v+px;
+              }@else{
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v;
+              }
+            }
+            @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")){
+              $img:'url("'+$path+$v+'")';
+              $i-t:true;
+            }
+          }
+          // content: $c-t $i-t $x-t $nr1-t $i;
+          @if ($c-t==""){
+            @if ($i==1){
+              $b:$img+' '+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$img+' '+$x+' '+$nr1;
+            }
+          }
+          @if ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($x-t==""){
+            $b:$c+' '+$img+' 0 0 '+$nr1;
+          }
+          @if ($nr1-t==""){
+            @if ($i==1){
+              $b:$c+' '+$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($x-t==""){
+            $b:$c +' ' + $img +' 0 0 '+$nr;
+          }
+          @if ($nr1-t=="") and ($c-t==""){
+            @if ($i==1){
+              $b:$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($c-t=="") and ($x-t==""){
+            $b:$img+' '+'0 0'+' '+$nr1;
+          }
+          @if ($i-t=="") and ($x-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t==""){
+            $b:$img+' '+'0 0'+' '+$nr;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($i-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+          }
+          @if ($nr1-t=="") and ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($x-t=="") and ($c-t=="") and ($i-t==""){
+            //无意义
+            $b:'url("'+$path+$bgi+'") 0 0 '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t==""){
+            $b:'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+          }
+          $b:unquote($b);
+          $zhi: $b;
+        }
+      }
+      @if (length($attr)==6){//只有3个值时
+        $shu:nth($attr,1);$v1:'';$v2:'';$v3:'';
+        $list:nth($attr,2),nth($attr,3),nth($attr,4),nth($attr,5),nth($attr,6);
+        //特殊项处理
+        @if (nth($attr,1)=='bg'){
+          $b:'';$c:'';$img:'';$x:'';$nr1:'';$c-t:'';$i-t:'';$x-t:'';$nr1-t:'';$i:0;
+          @each $v in $list{
+            @if (type_of($v)=="string"){
+              @if ($v=="n") or ($v=="nr") or ($v=="no-repeat") or ($v=="repeat-x") or ($v=="x") or ($v=="repeat-y") or ($v=="y"){
+                @if ($v=="n"){$v:no-repeat;}
+                @if ($v=="nr"){$v:no-repeat;}
+                @if ($v=="x"){$v:repeat-x;}
+                @if ($v=="y"){$v:repeat-y;}
+                $nr1:$v;
+                $nr1-t:true;
+              }
+              @if ($v=="left") or ($v=="right") or ($v=="top") or ($v=="bottom") or ($v=="center") or ($v=="c") or ($v=="l") or ($v=="r") or ($v=="t") or ($v=="b"){
+                @if ($v=="c"){$v:center;}
+                @if ($v=="l"){$v:left;}
+                @if ($v=="r"){$v:right;}
+                @if ($v=="t"){$v:top;}
+                @if ($v=="b"){$v:bottom;}
+                $x:$x+' '+$v;
+                $x-t:true;
+                $i:$i+1;
+              }
+            }
+            @if (type_of($v)=="color"){
+              $c:$v;
+              $c-t:true;
+            }
+            @if (type_of($v)=="number"){
+              @if (unit($v)=='') and ($v!=0){
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v+px;
+              }@else{
+                $i:$i+1;
+                $x-t:true;
+                $x:$x+' '+$v;
+              }
+            }
+            @if (type_of($v)!="color") and (type_of($v)!="number") and (($v!="no-repeat") and ($v!="nr") and ($v!="repeat-x") and ($v!="repeat-y") and ($v!="center") and ($v!="top") and ($v!="left") and ($v!="right") and ($v!="bottom")){
+              $img:'url("'+$path+$v+'")';
+              $i-t:true;
+            }
+          }
+          // content: $c-t $i-t $x-t $nr1-t $i;
+          @if ($c-t==""){
+            @if ($i==1){
+              $b:$img+' '+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$img+' '+$x+' '+$nr1;
+            }
+          }
+          @if ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($x-t==""){
+            $b:$c+' '+$img+' 0 0 '+$nr1;
+          }
+          @if ($nr1-t==""){
+            @if ($i==1){
+              $b:$c+' '+$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($x-t==""){
+            $b:$c +' ' + $img +' 0 0 no-repeat';
+          }
+          @if ($nr1-t=="") and ($c-t==""){
+            @if ($i==1){
+              $b:$img+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$img+$x+' '+$nr;
+            }
+          }
+          @if ($nr1-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:$c+' '+'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr1;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr1;
+            }
+          }
+          @if ($c-t=="") and ($x-t==""){
+            $b:$img+' '+'0 0'+' '+$nr1;
+          }
+          @if ($i-t=="") and ($x-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'")'+' '+'0 0'+' '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t==""){
+            $b:$img+' '+'0 0'+' '+$nr;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($i-t==""){
+            $b:$c+' '+'url("'+$path+$bgi+'") 0 0 '+ $nr;
+          }
+          @if ($nr1-t=="") and ($c-t=="") and ($i-t==""){
+            @if ($i==1){
+              $b:'url("'+$path+$bgi+'")'+$x+' '+0+' '+$nr;
+            }@else{
+              $b:'url("'+$path+$bgi+'")'+$x+' '+$nr;
+            }
+          }
+          @if ($x-t=="") and ($c-t=="") and ($i-t==""){
+            //无意义
+            $b:'url("'+$path+$bgi+'") 0 0 '+$nr1;
+          }
+          @if ($nr1-t=="") and ($x-t=="") and ($c-t=="") and ($i-t==""){
+            $b:'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+          }
+          @if ($nr1-t!="") and ($x-t!="") and ($c-t!="") and ($i-t!=""){
+            $b:'url("'+$path+$bgi+'")'+' 0 0 '+$nr;
+          }
+          $b:unquote($c+' '+$img+' '+ $x+' '+$nr1);
+          $zhi: $b;
+        }
+      }
+      @if(length($attr)>2 and nth($attr,1)=='v'){
+        @if(nth($attr,2)=='w'){
+          $shi1:"width";
+          $zhi:nth($attr,3);
+        }
+      }
+      @if(nth($attr,1)!='con'){
+        $zhi:unquote($zhi);
+      }
+      $shu1:unquote($shu1);
+      #{$shu1}:$zhi;
+      // content: ($zhi);
+    }
+  }
+}
+
+//new mixin
+//each()表示的是隔几选一
+@mixin each($num, $type: false) {
+  @if $type == true {
+    &:nth-of-type(#{$num}n){
+      @content;
+    }
+  }
+  @else {
+    &:nth-child(#{$num}n){
+      @content;
+    }
+  }
+}
+//all-but()表示除第x之外所有元素。其传递的参数同样是$num和$type
+@mixin all-but($num, $type: false) {
+    @if $type == true {
+        &:not(:nth-of-type(#{$num})){
+            @content;
+        }
+    }
+    @else {
+        &:not(:nth-child(#{$num})){
+            @content;
+        }
+    }
+}
+// between()表示选择第first和last之间的元素。这个混合宏不同的是，给其传递三个变量：$first、$last和$type
+@mixin between($first,$last, $type: false) {
+    @if $type == true {
+        &:nth-of-type(n + #{$first}):nth-of-type(-n + #{$last}){
+            @content;
+        }
+    }
+    @else {
+        &:nth-child(n + #{$first}):nth-child(-n + #{$last}){
+            @content;
+        }
+    }
+}
+// from-end()表示选择倒数第x个元素
+@mixin from-end($num, $type: false) {
+    @if $type == true {
+        &:nth-last-of-type(#{$num}){
+            @content;
+        }
+    }
+    @else {
+        &:nth-last-child(#{$num}){
+            @content;
+        }
+    }
+}
+//选择第x个后面的元素
+@mixin after($num, $type: false) {
+    @if $type == true {
+        &:nth-of-type(n+#{$num + 1}){
+            @content;
+        }
+    }
+    @else {
+        &:nth-child(n + #{$num + 1}){
+            @content;
+        }
+    }
+}
+//选择从最后的第x个的元素
+@mixin last($num, $type: false) {
+    @if ($num ==1) and ($type == true) {
+        &:last-of-type{
+            @content;
+        }
+    }
+    @if ($num == 1) and ($type == false) {
+        &:last-child{
+            @content;
+        }
+    }
+    @if ($num !=1) and ($type == true) {
+        &:nth-last-of-type(-n + #{$num}){
+            @content;
+        }
+    }
+    @if ($num != 1) and ($type == false) {
+        &:nth-last-child(-n + #{$num}){
+            @content;
+        }
+    }
+}
+//选择从开始的第x个的元素
+@mixin first($num, $type: false) {
+    @if ($num ==1) and ($type == true) {
+        &:first-of-type{
+            @content;
+        }
+    }
+    @if ($num == 1) and ($type == false) {
+        &:first-child{
+            @content;
+        }
+    }
+    @if ($num !=1) and ($type == true) {
+        &:nth-of-type(-n + #{$num}){
+            @content;
+        }
+    }
+    @if ($num != 1) and ($type == false) {
+        &:nth-child(-n + #{$num}){
+            @content;
+        }
+    }
+}
+// 垂直居中
+@mixin center($width: null, $height: null) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @if not $width and not $height {
+        transform: translate(-50%, -50%);
+    } @else if $width and $height {
+        width: $width;
+        height: $height;
+        margin: -($width / 2) #{0 0} -($height / 2);
+    } @else if not $height {
+        width: $width;
+        margin-left: -($width / 2);
+        transform: translateY(-50%);
+    } @else {
+        height: $height;
+        margin-top: -($height / 2);
+        transform: translateX(-50%);
+    }
+}
+// 垂直居中
+@mixin center-children {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/// @param  {[string]} $justify      [center] 水平对齐方向,[false] 水平方向不设置
+/// @param  {[string]} $align      [center] 垂直对齐方向,[false] 垂直方向不设置
+@mixin box-center($justify:center, $align: center) {
+    display:flex;
+
+    @if($align !=false) {
+        align-items: $align;
+    }
+    @if($justify !=false) {
+        justify-content: $justify;
+    }
+}
+/// 使用translate实现水平垂直居中
+/// @param {String} $direction [both] - 水平垂直,其它值`horizontal`和`vertical`
+@mixin center-translate($direction: both) {
+    position: absolute;
+    @if $direction == both {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+    @else if $direction == horizontal {
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+    }
+    @else if $direction == vertical {
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+    }
+}
+// 清除浮动
+@mixin cl() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+// 内阴影和外阴影
+@mixin box-sh($opacity, $opacity2){
+  box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+// 图片标题动画
+@mixin animated-caption($font-color, $bg-color, $bg-opacity, $padding, $transition-speed) {
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+  & img {
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  & span.outer {
+    display:block;
+    width:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:$padding;
+    color:$font-color;
+    position:absolute;
+    bottom:-100px;
+    -webkit-transition: bottom $transition-speed ease;
+    -moz-transition: bottom $transition-speed ease;
+    -o-transition: bottom $transition-speed ease;
+    -ms-transition: bottom $transition-speed ease;
+    transition: bottom $transition-speed ease;
+    & span.inner{
+      margin:0px;
+      position:relative;
+    }
+    &:before{
+      content: " ";
+      display:block;
+      position:absolute;
+      z-index:0;
+      left:0px;
+      top:0px;
+      width:100%;
+      height:100%;
+      background:$bg-color;
+      filter: alpha(opactiy=($bg-opacity * 100));
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$bg-opacity * 100})";
+      -moz-opacity: $bg-opacity;
+      -khtml-opacity: $bg-opacity;
+      opacity: $bg-opacity;
+    }
+  }
+  &:hover span.outer{
+    bottom:0px;
+  }
+}
+
+
+/// AMCSS，实现自定义属性的属性选择器，其前缀采用了am字符开头
+/// @access public
+/// @param {type} $module - 自定义属性名
+/// @param {type} $trait [null] - 属性值
+/// @content
+/// 例子am(type,radio){}
+@mixin am($module, $trait: null) {
+  @if $trait != null {
+    [am-#{$module}~="#{$trait}"]{
+      @content;
+    }
+  }
+  @else {
+    [am-#{$module}]{
+      @content;
+    }
+  }
+}
+// /// 控制文字行数溢出点点点
+/// @param  {number} $lines      [1] - 默认一行对于点点点结束
+/// @param  {number} $substract  [0] - 默认宽度为100% - 0
+@mixin ddd($lines: 1, $substract: 0) {
+    @if $lines == 1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100% - $substract;
+      overflow: hidden;
+    } @else {
+        overflow:hidden;
+      display:-webkit-box;
+      display:box;
+      -webkit-line-clamp: $lines;
+      line-clamp: $lines;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+}
+
+/// Calc计算
+/// @param {String} $prop CSS属性
+/// @param {String} $val CSS属性值的表达式
+/// @example
+/// //SCSS
+/// .calc{
+///    @include calc(width,'100% - 20px');
+/// }
+/// //CSS
+/// .calc {
+///   width: calc(100% - 20px);
+/// }
+
+@mixin calc($prop, $val) {
+  #{$prop}: calc(#{$val});
+}
+
+/// @param {string} $old-context - 选择器
+/// @param {string} $new-context - 选择器
+/// @content
+/// @example
+/// //SCSS
+/// .tabs {
+///     .tab {
+///         background: red;
+///         &:hover {
+///             background: white;
+///         }
+///         .tab-link {
+///             color: white;
+///             @include context('.tab', '.tab:hover') {
+///                 color: red;
+///             }
+///         }
+///     }
+/// }
+/// //CSS
+/// .tabs .tab {
+///   background: red;
+/// }
+/// .tabs .tab:hover {
+///   background: white;
+/// }
+/// .tabs .tab .tab-link {
+///   color: white;
+/// }
+/// .tabs .tab:hover .tab-link {
+///   color: red;
+/// }
+/// 
+/// 替换选择器（替换一个父级选择器，上例中@include context('.tab', '.tab:hover')可理解为当前域的父级.tab替换成.tab:hover
+@mixin phuan($old-context, $new-context) {
+    @at-root #{selector-replace(&, $old-context, $new-context)} {
+        @content;
+    }
+}
+
+/// @param {list} $states - 选择器组
+/// @example
+/// //SCSS
+/// .tab {
+///   background: red;
+/// 
+///     &:hover {
+///       background: white;
+///     }
+///
+///     .tab-link {
+///       color: white;
+/// 
+///         @include parentState(':hover', '.active') {
+///           color: pink;
+///         }            
+///   }
+/// }
+/// //CSS
+/// .tab {
+///     background: red;
+/// }
+/// .tab:hover {
+///     background: white;
+/// }
+/// .tab .tab-link {
+///     color: white;
+/// }
+/// .tab:hover .tab-link {
+///     color: pink;
+/// }
+/// .tab.active .tab-link {
+///     color: pink;
+/// }
+/// 在父级中找到多个选择器[x,y]，并将这个选择器中加入一些新样式
+@mixin peach($states...) {
+    $parent: nth(nth(&, 1), (length(nth(&, 1))-1));
+    
+    @each $state in $states {    
+      @at-root #{selector-replace(&, $parent, ($parent#{$state}))} {
+          @content;
+      }
+    }
+}
+
+/// 伪元素
+/// @param {string} $el - 伪元素`:before`或`:after`
+/// @param {number} $el-width - 伪元素的`width`
+/// @param {number} $el-height - 伪元素的 `height`
+/// @example
+/// //SCSS
+/// .icon-toggle {
+///   width: 1.56em;
+///   height: 0.75em;
+///   position: relative;
+///   display: inline-block;
+///   border-top: solid .125em #60666c;
+///
+///   @include pseudo-elements(before, 1.56em, .125em) {
+///     background: #888c91;
+///     top: .25em;
+///   }
+///   @include pseudo-elements(after, 1.56em, .125em) {
+///     background: #afb3b5;
+///     bottom: 0;
+///   }
+/// }
+/// // Out CSS
+/// .icon-toggle {
+///   width: 1.56em;
+///   height: 0.75em;
+///   position: relative;
+///   display: inline-block;
+///   border-top: solid .125em #60666c;
+/// }
+/// .icon-toggle:before {
+///   content: "";
+///   position: absolute;
+///   width: 1.56em;
+///   height: 0.125em;
+///   background: #888c91;
+///   top: .25em;
+/// }
+/// .icon-toggle:after {
+///   content: "";
+///   position: absolute;
+///   width: 1.56em;
+///   height: 0.125em;
+///   background: #afb3b5;
+///   bottom: 0;
+/// }
+/// @author Guil Hernandez
+/// @link Thanks: http://blog.teamtreehouse.com/modular-pseudo-elements-sass
+
+@mixin paf($el,$el-width,$el-height){
+  @if $el == "before" or $el == "after"{
+    &:#{$el}{
+      content: "";
+      position: absolute;
+      width: $el-width;
+      height: $el-height;
+      @content;
+    }
+  }
+  @else {
+    @warn "`#{$el}` is not a valid pseudo-element.";
+  }
+}
+
+
+/// Parent Hover
+/// @example
+/// //SCSS
+/// .nav-menu {
+///   li {
+///     float: left;
+///     a {
+///       color: blue;
+///       @include parent-hover {
+///         color: purple;
+///       }
+///     }
+///     .sub-menu {
+///       display: none;
+///       @include parent-hover {
+///         display: block;
+///       }
+///     }
+///   }
+/// }
+/// //Out CSS
+/// .nav-menu li {
+///   float: left;
+/// }
+/// .nav-menu li a {
+///   color: blue;
+/// }
+/// .nav-menu li:hover a {
+///   color: purple;
+/// }
+/// .nav-menu li .sub-menu {
+///   display: none;
+/// }
+/// .nav-menu li:hover .sub-menu {
+///   display: block;
+/// }
+/// @link http://sassmeister.com/gist/5ede2ad94b87929db8fe
+
+@mixin phover() {
+  $selector: &;
+  @each $list in & {
+    $parent: nth($list,length($list)-1);
+    $selector: selector-replace($selector,$parent,$parent+':hover');
+  }
+  @at-root #{$selector} {
+    @content;
+  }
+}
+
+/// 容器高度相对于宽度的计算
+/// @param {number} $percentage [100%] - 高度和宽度一样
+/// @param {string} $pos [after] - 通过伪元元素 `after`来撑开容器 [before] - 通过伪元素 `before`来撑开容器
+@mixin h_w($percentage: 100%, $pos: 'after') {
+    &:#{$pos} {
+        content: " ";
+        display: block;
+        height: 0;
+        padding-bottom: $percentage;
+        @content;
+    }
+}
+
+/// Has Lines
+/// @param {number} $gutter [20px] - 间距
+/// @param {string} $color [#ccc] - 线条颜色
+/// @param {number} $minWidth [20px] - 线条宽度
+/// @param {number} $height [1px] - 线条粗细
+
+@mixin space($gutter:20px, $color:#ccc, $minWidth:20px, $height:1px) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    &:before,
+    &:after {
+        content: '';
+        flex-grow: 1;
+        background-color: $color;
+        display: inline-block;
+        vertical-align: middle;
+        height: $height;
+        min-width: $minWidth;
+    }
+    &:before {
+        margin-right: $gutter;
+    }
+    &:after {
+        margin-left: $gutter;
+    }
+}
+
+$PI: 3.141592653589793;
+
+/// Border Polygon
+/// @param {number} $num - 多边型数量
+/// @param {string} $color [#000] - 多边型颜色
+/// @param {number} $radius [64px] - 多边型背景
+/// @author 大漠
+/// @link http://www.w3cplus.com/preprocessor/creat-css-polygon-wiht-border-and-clip-path-property.html
+@mixin bp($num, $color: #000, $radius: 64px) {
+    position: relative;
+    height: 2.5*$radius;
+    width: 2.5*$radius;
+    div {
+        $halfWidth: tan($PI / $num) * $radius + 1; // + 1.5 to account for anti-aliasing
+        border-top: #{$radius} solid $color;
+        border-left: #{$halfWidth} solid transparent;
+        border-right: #{$halfWidth} solid transparent;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: 50% 100%;
+        @for $i from 0 through $num {
+            &:nth-child(#{$i}) {
+                transform: translate(-50%, -100%) rotate(360deg / $num * $i);
+            }
+        }
+    }
+}
+
+/// 使用 clip 制作多边形
+/// @param {number} $num - 多边形数量
+/// @param {string} $color - 多边形颜色
+/// @param {number} $radius - 多边形半径
+/// @author 大漠
+/// @link http://www.w3cplus.com/preprocessor/creat-css-polygon-wiht-border-and-clip-path-property.html
+@mixin cp($num, $color, $radius: 64px) {
+    position: relative;
+    width: $radius*2;
+    height: $radius*2;
+    background: $color;
+    $points: ();
+    @for $i from 0 to $num {
+        $angle: 360deg/2/$num + 360deg / $num * $i;
+        $pointX: 50% + sin($angle)*50%;
+        $pointY: 50% + cos($angle)*50%;
+        $points: append($points, unquote($pointX+" "+$pointY), "comma");
+    }
+    clip-path: polygon(#{$points});
+}

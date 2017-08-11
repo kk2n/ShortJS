@@ -1,0 +1,55 @@
+{
+  "name": "riot-mixin-pack",
+  "version": "0.2.0",
+  "description": "Useful mixin pack for Riot.js",
+  "files": [
+    "dist"
+  ],
+  "jsnext:main": "dist/riot-mixin-pack.es6.js",
+  "main": "dist/riot-mixin-pack.cjs.js",
+  "browser": "dist/riot-mixin-pack.amd.js",
+  "homepage": "https://github.com/cognitom/riot-mixin-pack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cognitom/riot-mixin-pack.git"
+  },
+  "author": "Tsutomu Kawamura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cognitom/riot-mixin-pack/issues"
+  },
+  "keywords": [
+    "riot",
+    "mixin"
+  ],
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "change-case": "^2.3.1",
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^2.5.3",
+    "expect.js": "^0.3.1",
+    "karma": "^0.13.22",
+    "karma-mocha": "^0.2.2",
+    "karma-mocha-reporter": "^2.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-riot": "^1.0.1",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "riot": "^2.3.17",
+    "rollup": "^0.25.7",
+    "rollup-plugin-babel": "^2.4.0",
+    "rollup-plugin-commonjs": "^2.2.1",
+    "rollup-plugin-json": "^2.0.0",
+    "rollup-plugin-node-resolve": "^1.5.0",
+    "uglify-js": "^2.6.2"
+  },
+  "scripts": {
+    "build": "node rollup.js",
+    "pretest": "npm run build",
+    "test": "npm run eslint && npm run karma",
+    "eslint": "eslint */index.js index.js",
+    "karma": "karma start test/karma.conf.js",
+    "watch": "chokidar '*/index.js' 'index.js' -c 'npm run build'",
+    "prepublish": "npm run build"
+  }
+}

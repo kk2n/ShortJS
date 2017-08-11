@@ -1,0 +1,623 @@
+@charset "UTF-8";
+
+//sass组件-----------------------------
+@import './susy/_susy.scss';
+@import '_all-set';
+@import 'd:/ws/ss/_sscss-set';
+@import 'd:/ws/ss/_sscss-mixin';
+@import 'd:/ws/ss/_sscss-reset';
+$susy: (
+        flow: ltr,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        container: auto,
+        container-position: center,
+        columns: 4,
+        gutters: 0,
+        column-width: false,
+        global-box-sizing: content-box,
+        last-flow: to,
+        debug: ( image: hide, color: rgba(#66f, .25), output: background, toggle: top right, ),
+        use-custom: ( background-image: true, background-options: false, box-sizing: true, clearfix: false, rem: true, )
+);
+
+//颜色表
+$ht-nav-bg:#fff;//系统-头部导航背景颜色
+$ht-nav-bdb:#ddd;//系统-头部导航的下边框
+
+body { @include container(1400px); }
+nav { @include span(2 of 24); }
+/*
+公共样式----------------------------------------------
+*/
+//去除IOS的默认样式
+input[type="button"], input[type="submit"], input[type="reset"],textarea{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+a,a:active,a:focus, input,input:active,input:focus, img, textarea, span, div {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+div,input,img,textarea,p,a,span,samp,i,em,b,strong,ul,li,ol,dd,dl{
+  box-sizing: border-box;
+}
+label{
+  margin: 0;
+  padding: 0;
+}
+//input[type=range]样式
+input[type=range] {
+  -webkit-appearance: none;
+  @include ss(() (m 10 0)(w 100%));
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0 0 0 #000000, 0 0 0 #276CBD;
+    background: #276CBD;
+    border-radius: 5px;
+    border: 0 solid #000101;
+  }
+  &::-webkit-slider-thumb {
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+    border: 0 solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #00357a;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+  }
+  &:focus::-webkit-slider-runnable-track {
+    background: #276CBD;
+  }
+  &::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+    background: #276CBD;
+    border-radius: 6px;
+    border: 0 solid #000101;
+  }
+  &::-moz-range-thumb {
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+    border: 0 solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #00357a;
+    cursor: pointer;
+  }
+  &::-ms-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    border-width: 6px 0;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    background: #276CBD;
+    border: 0 solid #000101;
+    border-radius: 50px;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+  }
+  &::-ms-fill-upper {
+    background: #276CBD;
+    border: 0 solid #000101;
+    border-radius: 50px;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+  }
+  &::-ms-thumb {
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+    border: 0 solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #00357a;
+    cursor: pointer;
+  }
+  &:focus::-ms-fill-lower {
+    background: #276CBD;
+  }
+  &:focus::-ms-fill-upper {
+    background: #276CBD;
+  }
+}
+//radio样式
+.lk-radio {
+  @include ss(() (dn));
+  & + label{
+    @include ss(() (bgc #fafafa)(bd #cacece)(p 9)(bdrs 50)(di)(por));
+    -webkit-appearance: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 -15px 10px -12px rgba(0,0,0,0.05);
+    &:active{
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+  }
+  &:checked {
+    & + label {
+      @include ss(() (bgc #e9ecee)(c #99a1a7)(bd #adb8c0));
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05),inset 15px 10px -12px rgba(255,255,255,0.1), inset 0 0 10px rgba(0,0,0,0.1);
+      &:after{
+        @include ss((con) (w 10)(h 10)(bdrs 50)(poa)(t 4)(l 4)(bgc #2E7EDC)(fz 32));
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+      }
+      &:active{
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 3px rgba(0,0,0,0.1);
+      }
+    }
+  }
+}
+.big-radio{
+  & + label{
+    @include ss(() (p 16));
+  }
+  &:checked{
+    & + label{
+      &:after{
+        @include ss(() (w 22)(h 22)(l 5)(t 5));
+      }
+    }
+  }
+}
+//check样式
+.lk-checkbox {
+  @include ss(() (dn));
+  & + label {
+    @include ss(() (bgc #fafafa)(bd #cacaca)(p 9)(bdrs 1)(di)(por));
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05);
+    &:active {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+  }
+  &:checked{
+    & + label{
+      &:active {
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 3px rgba(0,0,0,0.1);
+      }
+    }
+    & + label {
+      @include ss(() (bgc #eff2f2)(bd #b4bfc7)(c #99a1a7));
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+      &:after {
+        @include ss(() (con '\2714')(fz 14)(poa)(t -2)(l 3)(c #276CBD));
+      }
+    }
+  }
+}
+.big-check{
+  & + label {
+    @include ss(() (p 18));
+  }
+  &:checked{
+    & + label{
+      &:after {
+        @include ss(() (fz 28)(l 6));
+      }
+    }
+  }
+}
+.checkbox-c{
+  & .lk-checkbox{
+    & + label {
+      padding: 7px;
+      top: 3px;
+    }
+    &:checked{
+      & + label {
+        &:after {
+          @include ss(() (t -4)(l 1));
+        }
+      }
+    }
+  }
+}
+
+.textarea-c{
+  @include ss(() (bd $xs-m1)(bgc $bg-m1)(lh 1.5)(p 6));
+}
+//input
+.input-c{
+  @include ss(() (who auto 34)(bd $xs-m1)(bgc $bg-m1)(p 0 12)(lh 34px));
+}
+.disable-c{
+  @include ss(() (bgc #f0f0f0));
+}
+.radio-c{
+  @include ss(() (m 0));
+  &>label {
+    @include ss(() (fl)(t 5));
+  }
+  &>samp{
+    @include ss(() (fl)(fw)(pl 8)(mt 5)(ff $ff-yh));
+  }
+}
+.select-c{
+  @include ss(() (wh 200 34)(cup)(bd)(pr 30)(pl 10)(lh 1.5)(ff $ff-yh));
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("img/select-ico.png") no-repeat scroll right center transparent;
+  //box-shadow: 0 1px 1px rgba(0,0,0,0.1) inset;
+  &:focus{
+    outline: none;
+  }
+}
+
+//模拟select---
+.sod_select .sod_list{
+  @include ss(() (mah 300));
+}
+.my-select{
+  @include ss((db) (bd 0)(h 34)(lh 34px)(ff $ff-yh)(bgc #fff));
+  & a{
+    @include ss(() (db));
+    &:not(.sel-a){
+      @include ss((who auto 34)(a)(c #666)(db) (bd #ddd)(pl 8));
+      & samp{
+        @include ss((who 100% 34) ()(db)(ff $ff-yh));
+      }
+      & span{
+        @include ss(() (bg #fff 'select-ico.png' c c)(wh 34 32)(fr)(por)(mt -34));
+      }
+      &:hover{
+        @include ss(() (bd #458BCA));
+      }
+    }
+  }
+  &>button{
+    @include ss((w 100%) (bd 0)(bg none)(tal)(p 0)(m 0));
+  }
+
+  & .option-c{
+    @include ss(() (who)(bd)(bdb 0)(bdrs 0)(m 0 0 0)(w 100%)(cup)(ff $ff-m)(p 0)(bg #fff 'b-1.png' c b x)(miw 100)(dn));
+    box-shadow: none;
+    &>dd{
+      @include ss((cb) (w 100%)(tal)(bgc #f6f6f6)(p 8)(bdb #f0f0f0)(ff $ff-yh));
+    }
+    & ul{
+      @include ss(() (who)(zdh 360)(bg #fff 'b-1.png' c b x)(pb 1)(mb 0));
+      height: auto!important;
+      overflow-y: auto;
+    }
+    & li{
+      @include ss(() (bdt #f0f0f0)(bdb #f0f0f0)(por)(mt -1)(p 2 8 2 8)(fz 16)(c #666)(ff $ff-yh));
+      transition:All 0.1s ease-in-out;
+      &:hover{
+        @include ss(() (bgc #F7F7F7)(pl 12)(c #333));
+      }
+    }
+    & li.selected{
+      background:#F7F7F7 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTAgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAgOSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjRDlEOUQ4IiBkPSJNNCw2LjdDMy42LDYuMywzLjUsNi4xLDMuMSw1LjdDMi42LDUuMiwyLDQuNiwxLjUsNC4xYy0wLjgtMC44LTIsMC40LTEuMiwxLjJjMC45LDAuOSwxLjksMS45LDIuOCwyLjgNCgkJYzAuNywwLjcsMS4zLDEsMiwwQzYuNyw2LDguMywzLjcsOS44LDEuNUMxMC41LDAuNSw5LTAuMyw4LjMsMC42bDAsMEM2LjcsMi45LDUuNyw0LjQsNCw2LjciLz4NCjwvZz4NCjwvc3ZnPg0K)no-repeat 95% center;
+      @include ss(() (bgs auto 25%));
+    }
+  }
+  &.open{
+    & a{
+      @include ss(() (db));
+      &:not(.sel-a){
+        @include ss(() (bd #458BCA));
+      }
+    }
+    & .option-c{
+      @include ss(() (db));
+    }
+  }
+}
+//按钮样式0
+.btn-c{
+  @include ss(() (who auto 34)(bgc #458BCA)(bd #458BCA)(c #fff)(lh 30px)(tac));
+  &:hover{
+    @include ss(() (bgc darken(#458BCA, 10%))(bd darken(#458BCA, 10%)));
+  }
+  &:focus{
+    outline: none;
+  }
+}
+body {@include ss((bgc $bg-m1) (fz $fz) (ff $ff-yh) (lh $lh) (c $zs-m1)(miw 320));
+  font-family:"Microsoft YaHei",Arial,sans-serif!important;}
+.dn {display: none;}
+.fl {float: left;}
+.fr {float: right;}
+.imgb {width: 100%;height: auto;border: none;}
+.jzc {margin-left: auto;margin-right: auto;text-align: center;}
+.jz {margin-left: auto;margin-right: auto;}
+.space-c{@include ss(() (hx 1px))}
+.clear{@include ss(() (hx 0px))}
+.mt-20{margin-top: 20px;}
+.sjx-b{ width: 0;height:0;line-height:0;border-width:8px 8px 0 8px;border-style:solid;border-left-color:transparent; border-right-color: transparent;}
+.sjx-t{ width: 0;height:0;line-height: 0;border-width: 0 4px 6px 4px;  border-style: solid;  border-left-color: transparent; border-right-color: transparent;}
+.ohv{overflow: visible!important;}
+.cup{cursor: pointer}
+.tag-dn{display: none}
+.vh{visibility: hidden}
+h1,h2,h3{margin: 0;padding: 0;}
+
+
+
+
+@keyframes a{0%{border-color:silver}to{border-color:#3e97eb}}
+.magic-checkbox,.magic-radio{position:absolute;display:none}
+.magic-checkbox[disabled],
+.magic-radio[disabled]{cursor:not-allowed}
+.magic-checkbox+label,
+.magic-radio+label{position:relative;display:inline;padding-left:24px;cursor:pointer;vertical-align:middle}
+.magic-checkbox+label:hover:before,
+.magic-radio+label:hover:before{animation-duration:.4s;animation-fill-mode:both;animation-name:a}
+.magic-checkbox+label:before,
+.magic-radio+label:before{position:absolute;top:3px;left:4px;display:inline-block;width:16px;height:16px;content:'';border:1px solid silver}
+.magic-checkbox+label:after,
+.magic-radio+label:after{position:absolute;display:none;content:''}
+.magic-checkbox[disabled]+label,
+.magic-radio[disabled]+label{cursor:not-allowed;color:#e4e4e4}
+.magic-checkbox[disabled]+label:after,
+.magic-checkbox[disabled]+label:before,
+.magic-checkbox[disabled]+label:hover,
+.magic-radio[disabled]+label:after,
+.magic-radio[disabled]+label:before,
+.magic-radio[disabled]+label:hover{cursor:not-allowed}
+.magic-checkbox[disabled]+label:hover:before,
+.magic-radio[disabled]+label:hover:before{border:1px solid #e4e4e4;animation-name:none}
+.magic-checkbox[disabled]+label:before,
+.magic-radio[disabled]+label:before{border-color:#e4e4e4}
+.magic-checkbox:checked+label:before,
+.magic-radio:checked+label:before{animation-name:none}
+.magic-checkbox:checked+label:after,
+.magic-radio:checked+label:after{display:block}
+.magic-radio+label:before{border-radius:50%}
+.magic-radio+label:after{top:7px;left:8px;width:8px;height:8px;border-radius:50%;background:#3e97eb}
+.magic-radio:checked+label:before{border:1px solid #3e97eb}
+.magic-radio:checked[disabled]+label:before{border:1px solid #c9e2f9}
+.magic-radio:checked[disabled]+label:after{background:#c9e2f9}
+.magic-checkbox+label:before{border-radius:3px}
+.magic-checkbox+label:after{top:2px;left:7px;box-sizing:border-box;width:6px;height:12px;transform:rotate(45deg);border:2px solid #fff;border-top:0;border-left:0}
+.magic-checkbox:checked+label:before{border:#3e97eb;background:#3e97eb}
+.magic-checkbox:checked[disabled]+label:before{border:#c9e2f9;background:#c9e2f9}
+
+
+
+.sod_select,
+.sod_select *
+{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sod_select
+{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 34px;
+  line-height: 31px;
+  padding: 0 8px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  color: #444444;
+  font-size: 16px;
+  font-weight: 100;
+  text-align: left;
+  text-transform: uppercase;
+  outline: 0;
+  /*outline-offset: -2px; !* Opera *!*/
+  cursor: pointer;
+}
+
+/* Up/Down arrows */
+.sod_select:after
+{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 7px;
+  width: 34px;
+  height: 32px;
+  background: url(../../../css/img/select-ico.png) center center no-repeat #fff;
+  bottom: 0;
+  transition:All 0.1s ease-in-out;
+  -webkit-transition:All 0.1s ease-in-out;
+  -moz-transition:All 0.1s ease-in-out;
+}
+
+
+/* Change the border color on hover, focus and when open */
+.sod_select:hover,
+.sod_select.open,
+.sod_select.focus { border-color: #458BCA; }
+
+.sod_select.open { color: #919191; }
+.sod_select.focus { box-shadow: 0 0 5px rgba(0,0,0,.2); }
+
+/* When the entire SoD is disabled, go crazy! */
+.sod_select.disabled
+{
+  border-color: #828282;
+  color: #b2b2b2;
+  cursor: not-allowed;
+}
+
+/* The "label", or whatever we should call it. Keep the first three lines for truncating. */
+.sod_select .sod_label
+{
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #666;
+  padding-right: 15px;
+}
+
+.sod_select .sod_prefix { /* Use this if you're using a prefix and want to style it */ }
+.sod_select .sod_placeholder { /* Use this if you're using a placeholder and want to style it */ }
+
+
+
+/* Options list wrapper */
+.sod_select .sod_list_wrapper
+{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  height: auto;
+  width: 100%;
+  margin: 2px 0 0 0;
+  background: #ffffff;
+  outline: 1px solid #ddd;
+  border-top: none;
+  color: #444444;
+  font-weight: 300;
+  z-index: 1;
+  box-shadow: 0 0 6px #eee;
+
+}
+
+/* Shows the option list (don't edit) */
+.sod_select.open .sod_list_wrapper { display: block;  }
+
+/* Don't display the options when  */
+.sod_select.disabled.open .sod_list_wrapper { display: none;  }
+
+/* When the option list is displayed above the SoD */
+.sod_select.above .sod_list_wrapper
+{
+  top: auto;
+  bottom: 100%;
+  border-bottom: none;
+}
+
+/* Options list container */
+.sod_select .sod_list
+{
+  display: block;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+
+}
+/* All the options. Keep the first three lines for truncating... */
+.sod_select .sod_option
+{
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  padding: 4px 8px;
+  list-style-type: none;
+  transition:All 0.1s ease-in-out;
+  -webkit-transition:All 0.1s ease-in-out;
+  -moz-transition:All 0.1s ease-in-out;
+  border-top:1px solid #f0f0f0;
+}
+.sod_select .sod_option:hover {
+  padding-left: 12px;
+}
+
+/* Optgroups */
+.sod_select .sod_option.optgroup,
+.sod_select .sod_option.optgroup.disabled
+{
+  background: inherit;
+  color: #939393;
+  font-size: 10px;
+  font-style: italic;
+}
+
+/* Children of an optgroup */
+.sod_select .sod_option.groupchild { padding-left: 20px; }
+
+/* Used together with placeholderOption / data-placeholder-option */
+.sod_select .sod_option.is-placeholder {
+  display: none;
+}
+/* Disabled option */
+.sod_select .sod_option.disabled
+{
+  background: inherit;
+  color: #cccccc;
+}
+/* Hover state for options, also used when a user uses his/hers up/down keys */
+.sod_select .sod_option.active
+{
+  background: #f7f7f7;
+  color: #333333;
+}
+/*Make room for the check mark */
+.sod_select .sod_option.selected
+{
+  font-weight: 100;
+  padding-right: 25px;
+}
+/* Displays a check mark for the selected option */
+.sod_select .sod_option.selected:before
+{
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: inline-block;
+  color: #808080;
+  height: 9px;
+  width: 10px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTAgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAgOSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjRDlEOUQ4IiBkPSJNNCw2LjdDMy42LDYuMywzLjUsNi4xLDMuMSw1LjdDMi42LDUuMiwyLDQuNiwxLjUsNC4xYy0wLjgtMC44LTIsMC40LTEuMiwxLjJjMC45LDAuOSwxLjksMS45LDIuOCwyLjgNCgkJYzAuNywwLjcsMS4zLDEsMiwwQzYuNyw2LDguMywzLjcsOS44LDEuNUMxMC41LDAuNSw5LTAuMyw4LjMsMC42bDAsMEM2LjcsMi45LDUuNyw0LjQsNCw2LjciLz4NCjwvZz4NCjwvc3ZnPg0K);
+}
+
+.sod_select.no_highlight .sod_option.selected { font-weight: 300; }
+.sod_select.no_highlight .sod_option.selected:before { display: none; }
+
+.sod_select .sod_option.link { /* If data-link is set on a specific option */ }
+.sod_select .sod_option.linkexternal { /* If data-link-external is set on a specific option */ }
+
+.sod_select select { display: none !important; }
+.sod_select.touch select
+{
+  -webkit-appearance: menulist-button;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block !important;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+
+.sys-page-tit{
+  @include ss(() (who) (por) (ml 270) (mt 50));
+}
+.sys-inde-main {
+  @include ss(() (wh) (por) (ml 270));
+}
+.ysy-hou-waik .ysy-foot .foot-b{
+  margin-left: 0;
+  text-indent: -210px;
+}
+.ysy-hou-waik .you-nav{
+  top: 0;
+}
+body .layui-layer-loading .layui-layer-content{
+  background: none;
+}

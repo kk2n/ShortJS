@@ -1,0 +1,592 @@
+@charset "UTF-8";
+//---------------------------------------------------------------
+// 项目名：   ShortScss (简写：sscss)
+// 版  本：   V1.0.0
+// 作  者：   Likuan
+// 关键词：   简单的，简短的，缩写的，胡乱的，疯狂的Scss的简写混合（mixin）方法。
+// 介  绍：   此功能拷贝Rafal Bromirski的媒体查询，为了少写代码做了部分改动
+@mixin scw ($resMin, $resMax) {
+    @media screen and (min-width: $resMin) and (max-width: $resMax){
+        @content;
+    }
+}
+@mixin scmaw ($res){
+    @media screen and (max-width: $res){
+        @content;
+    }
+}
+@mixin scmiw ($res){
+    @media screen and (min-width: $res){
+        @content;
+    }
+}
+@mixin sch   ($resMin, $resMax){
+    @media screen and (min-height: $resMin) and (max-height: $resMax){
+        @content;
+    }
+}
+@mixin scmah ($res){
+    @media screen and (max-height: $res){
+        @content;
+    }
+}
+@mixin scmih ($res){
+    @media screen and (min-height: $res){
+        @content;
+    }
+}
+//hdpi
+@mixin hdpi($ratio: 1.3){
+    @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (min--moz-device-pixel-ratio: $ratio),
+    only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+    only screen and (min-resolution: #{round($ratio*96)}dpi),
+    only screen and (min-resolution: #{$ratio}dppx){
+        @content;
+    }
+}
+// iphone 3 (landscape,portrait)
+@mixin ios3($orientation: all) {
+    $deviceMinWidth: 320px;
+    $deviceMaxWidth: 480px;
+    $devicePixelRatio: 1;
+    @if $orientation == all {
+        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio) {
+            @content;
+        }
+    }
+    @else {
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
+        {
+            @content;
+        }
+    }
+}
+// iphone 4 (landscape,portrait)
+@mixin ios4($orientation: all){
+    $deviceMinWidth: 320px;
+    $deviceMaxWidth: 480px;
+    $devicePixelRatio: 2;
+    $deviceAspectRatio: '2/3';
+    @if $orientation == all{
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        //and (device-aspect-ratio: $deviceAspectRatio)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio){
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        //and (device-aspect-ratio: 3/2)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+// iphone 5 (landscape,portrait)
+@mixin ios5($orientation: all){
+    $deviceMinWidth: 320px;
+    $deviceMaxWidth: 568px;
+    $MaxWidth: 568px;
+    $devicePixelRatio: 2;
+    $deviceAspectRatio: '40/71';
+    @if $orientation == all{
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (device-aspect-ratio: $deviceAspectRatio)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio){
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (device-aspect-ratio: $deviceAspectRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+// iphone 6 (landscape,portrait)
+@mixin ios6($orientation: all){
+    $MinWidth: 375px;
+    $MaxWidth: 627px;
+    $MinHeight:375px;
+    $MaxHeight:627px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinHeight)
+        and (max-height: $MaxHeight)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+// iphone 6 plus (landscape,portrait)
+@mixin ios6p($orientation: all){
+    $deviceMinWidth: 414px;
+    $deviceMaxWidth: 736px;
+    $devicePixelRatio: 3;
+    @if $orientation == all{
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio){
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+// ipad (all)
+@mixin ipad($orientation: all){
+    $MinWidth: 768px;
+    $MaxWidth: 1024px;
+    $MinHeight:768px;
+    $MaxHeight:1024px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinHeight)
+        and (max-height: $MaxHeight)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+// ipad-retina (landscape,portrait)
+@mixin ipad-retina($orientation: all){
+    $deviceMinWidth: 768px;
+    $deviceMaxWidth: 1024px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio){
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-device-width: $deviceMinWidth)
+        and (max-device-width: $deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+
+//likuan自己编写  (min-width:360px) and (max-width:375px)
+//原点2
+@mixin isaz($orientation: all){
+    $MinWidth: 360px;
+    $MaxWidth: 567px;
+    $devicePixelRatio: 3;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//vivo
+@mixin isaz-vivo($orientation: all){
+    $MinWidth: 360px;
+    $MaxWidth: 569px;
+    $devicePixelRatio: 3;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black berry playBook
+@mixin blackberry-playbook($orientation: all){
+    $MinWidth: 600px;
+    $MaxWidth: 1024px;
+    $devicePixelRatio: 1;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black berry z30
+@mixin blackberry-z30($orientation: all){
+    $MinWidth: 360px;
+    $MaxWidth: 640px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        //and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        //and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black google nexus 10
+@mixin google-nexus-10($orientation: all){
+    $MinWidth: 800px;
+    $MaxWidth: 1280px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black google nexus 4
+@mixin google-nexus-4($orientation: all){
+    $MinWidth: 384px;
+    $MaxWidth: 567px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black google nexus 6
+@mixin google-nexus-6($orientation: all){
+    $MinWidth: 412px;
+    $MaxWidth: 659px;
+    $devicePixelRatio: 3.5;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//Black google nexus 6
+@mixin google-nexus-7($orientation: all){
+    $MinWidth: 600px;
+    $MaxWidth: 960px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//LG L70
+@mixin lg-l70($orientation: all){
+    $MinWidth: 384px;
+    $MaxWidth: 640px;
+    $devicePixelRatio: 1.25;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+//amazon-Kindle-fire-hdx
+@mixin amazon-fire-hdx($orientation: all){
+    $MinWidth: 1600px;
+    $MaxWidth: 2560px;
+    $devicePixelRatio: 2;
+    @if $orientation == all{
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        {
+            @content;
+        }
+    }
+    @else{
+        @if ($orientation=='p') or ($orientation=='portrait'){
+            $orientation:portrait;
+        }
+        @if ($orientation=='l') or ($orientation=='landscape'){
+            $orientation:landscape;
+        }
+        @media only screen
+        and (min-width: $MinWidth)
+        and (max-width: $MaxWidth)
+        and (min-height: $MinWidth)
+        and (max-height: $MaxWidth)
+        and (-webkit-device-pixel-ratio: $devicePixelRatio)
+        and (orientation:#{$orientation}){
+            @content;
+        }
+    }
+}
+
+
+

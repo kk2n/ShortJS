@@ -1,0 +1,70 @@
+@charset "UTF-8";
+//常用变量------------------------------
+$ff: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei", 'Simsun', sans-serif;
+$ff-yh: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei", 'Simsun', sans-serif;
+$ff-m:"Microsoft YaHei",Arial,sans-serif;
+$lh: 1.5em;
+
+//文字大小
+
+$fz: 14px; //字体大小
+$lh: 1.5; //字体行距
+
+//文字色
+$zs-m1: #333; //主字体色,用于正文，文本
+$zs-m2: #fff; //反色，用于有深色背景的文字
+$zs-d1: #999; //用于次要文本
+$zs-d2: #ccc; //弱化文本
+
+
+//背景
+$bg-m1: #fff;  //主要背景,块级元素的背景
+$bg-m2: #f0f0f0; //次要背景
+$bg-d1: #0086D1;
+$bg-d2: #f9fafb;
+
+
+//按钮背景
+$bnbg-m1: #428bca;
+$bnbg-m2: #fff;
+$bnbg-d1: #606064;
+$bnbg-d2: #BC252A;
+
+//添加学生表格奇偶行-背景
+$tabo-even-bg:#F6F7FA;
+$tabo-even-bg-hover:#51C150;
+
+
+//线条
+$xs-m1: #ddd;
+$xs-m2: #fff;
+$xs-d1: #f4f4f4;
+$xs-d2: #f4f4f4;
+//创建群表单行UL的下横线色
+$xs-d3: #F5F7F9;
+
+//创建群 添加导师按钮边框
+$xs-d4: #2E7EDC;
+//选择主导师，选择后，选择成功项下面的横线
+$zhu-dao-shi-ul-bottom-xs:#f9f9f9;
+
+//a链接颜色
+$as-m1:#0086D1;
+$as-m2:#0086D1;
+$as-d1:#fff;
+$as-d2:#0086D1;
+
+//块滑动hover背景及边
+$hover-bg-d5:#F2FAFF;
+$hover-bd-d6:#64B2E3;
+
+//layer色彩
+//标题
+$layer-titzs:#fff;
+$layer-titbd:none;
+$layer-titbg:#0086D1;
+//确定按钮样式
+$layer-button-main-zs:#fff;
+$layer-button-main-bg:#418BCA;
+$layer-button-main-bd:#4898d5;
+

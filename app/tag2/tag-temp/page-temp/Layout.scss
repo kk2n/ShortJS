@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import '../../../sass/short-sass/_sscss-set';
+@import '../../../sass/short-sass/_sscss-mixin';
+@import '../../../sass/bootstrap3/bootstrap';
+//
+.anim{
+  transition:All 0.3s ease-in-out;
+  -webkit-transition:All 0.3s ease-in-out;
+  -moz-transition:All 0.3s ease-in-out;
+  -o-transition:All 0.3s ease-in-out;
+}
+.layout{
+  //图标
+  .glyphicon-triangle-right:before{
+    @include ss(() (t 2)(por));
+  }
+  //网格
+  & .tag-cols-left{
+    width:110px;
+    text-align: right;
+    line-height: 34px;
+    &>span {
+      @include ss((c #f00)(pr 6)(por)(t 3));
+    }
+  }
+  & .cols-t-center {
+    @include ss((tac) ());
+  }
+  //按钮
+
+  & .btn {
+    @include ss((bdrs 0) (bd #ddd));
+    &.btn-fill {
+      @include ss((bgc #f9f9f9) ());
+    }
+    &.btn-big {
+      @include ss((p 10 20) (fz 16));
+    }
+    &.btn-big2 {
+      @include ss((p 16 36) (fz 18));
+    }
+    &.btn-small {
+      @include ss((p 2 6) (fz 12));
+    }
+    &.btn-bdrs {
+      @include ss((bdrs 200) ());
+    }
+    &.btn-center {
+      @include ss((jzc) ());
+    }
+    &:active {
+      box-shadow:none;
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:visited {
+      @include ss(() ());
+    }
+    &.btn-blue {
+      @include ss((bd #488ECA) (c #488ECA));
+      &.btn-fill {
+        @include ss((bgc #488ECA) (c #fff));
+      }
+      &:hover {
+        @include ss((bgc #52a0e6) (c #fff));
+      }
+      &:focus {
+        background-color: #52a0e6;
+        color: #fff;
+      }
+    }
+    &.btn-orange {
+      @include ss((bd #FF9900) (c #FF9900));
+      &.btn-fill {
+        @include ss((bgc #FF9900) (c #fff));
+      }
+      &:hover {
+        @include ss((bgc #FF6600)(bd #FF6600) (c #fff));
+      }
+      &:focus {
+        background-color: #FF6600;
+        color: #fff;
+      }
+    }
+    &.btn-info {
+      @include ss((bd #2DB7F5) (c #2DB7F5));
+      &.btn-fill {
+        @include ss((bgc #2DB7F5) (c #fff));
+      }
+      &:hover {
+        @include ss((bgc #2baae4)(bd #2baae4) (c #fff));
+      }
+      &:focus {
+        background-color: #2baae4;
+        color: #fff;
+      }
+    }
+    &.btn-green {
+      @include ss((bd #5CB85C) (c #5CB85C));
+      &.btn-fill {
+        @include ss((bgc #65c765) (c #fff));
+      }
+      &:hover {
+        @include ss((bgc #5CB85C) (c #fff));
+      }
+      &:focus {
+        background-color: #5CB85C;
+        color: #fff;
+      }
+    }
+    &.btn-red {
+      @include ss((bd #D9534F) (c #D9534F));
+      &.btn-fill {
+        @include ss((bgc #e65753) (c #fff));
+      }
+      &:hover {
+        @include ss((bgc #D9534F) (c #fff));
+      }
+      &:focus {
+        background-color: #D9534F;
+        color: #fff;
+      }
+    }
+    &.btn-nobg {
+      @include ss((bd rgba(255,255,255,0)) (c #333)(bg none));
+      &.btn-fill {
+        @include ss((bgc #f9f9f9) ());
+      }
+      &:hover {
+        @include ss((bgc none) (c #333)(bd rgba(255,255,255,0)));
+        text-decoration: underline;
+      }
+    }
+    &.btn-dotted {
+      @include ss((bds dotted)());
+      &:hover {
+        @include ss((bgs dotted) ());
+      }
+    }
+  }
+  //输入框
+  & .myinput-c {
+    @include ss((wh 100% 34) (bd #ddd)(p 5 10)(lh 24px));
+    &.inp-bdrs {
+      @include ss((bdrs 200) (pl 16)(pr 16));
+    }
+  }
+  & .tag-cols-right{
+    position: relative;
+  }
+}
