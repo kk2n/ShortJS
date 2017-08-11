@@ -7,7 +7,7 @@ ShortJS前端开发库，之所以叫short(短小)，其目的只有一个，是
 先举个例子：
  
 样式的写法：
-      
+·
 .radio-c{
   @include ss(() (m 0));
   &>label {
@@ -17,7 +17,7 @@ ShortJS前端开发库，之所以叫short(短小)，其目的只有一个，是
     @include ss(() (fl)(fw)(pl 8)(mt 5)(ff $ff-yh));
   }
 }
- 
+· 
 或者 
 
 .sys-page-tit{
